@@ -1,0 +1,798 @@
+{
+  "review_date": "2026-09-27",
+  "basis": "Manual review by the assistant of all 99 stored headlines and available RSS summaries, not full article or incident verification. Decisions apply only to the exact reviewed title.",
+  "items": [
+    {
+      "id": "8a5d72d618f7698e5ce8b4e49d90e1a1b0f8205a313330ee2a8035ec912a3d8a",
+      "title": "1 dead, 1 injured in Arden-Arcade shooting, Sacramento police say",
+      "source": "KCRA",
+      "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxOV0ZJTWcyc2NxVnNrZUpuMVFKem90V1VUVkVQS3RLbDJOTXF4QVlBa3dZVzdKOWdiR045T2ZheVJSb2FKWXczNkFja2RIUjNuOE1UdFpsRDliU2lXXzRsc0M4aGd6ZGVuUEI4Yy12Z2pkYmtFeG00ZEZEMC1sYl8waA?oc=5",
+      "classification": "likely",
+      "reason": "Headline explicitly describes a shooting or gunfire event; incident facts not independently verified"
+    },
+    {
+      "id": "38aa41e3d23a3025086d45ccfb6be3411d79afa6ccc05f91aea50bbe3f495bb6",
+      "title": "At least 27 people killed in two shootings in South African townships",
+      "source": "Al Jazeera",
+      "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxPcmdOdlJEMEQ4dmtRUTBFWGtFT1o4UTBjcnFhS01GUGF0bWFMaUJzMmJBZVNxMzE4WHdveHlKN2h6V3lyN3YybjN6azNDanE0aXM5ZjhZSUxMWGNyeGRFSWx6WUtndVk0ZTB5eDVISTg5b1VDOXJpd0hiamt4Sk5IRlFaXzhFdE3SAYwBQVVfeXFMTm12eTFrYm5IN195Zk1PMzBXMEJ0NkZVTWtPbmRiSWtTN3FWQlBmdHRoNXBwU3BhbWRUNzVFX3hvT0Y5bDBncGV4YmZfWkdVZy1TRE5tc3lwaThDWkVoc0w0S28zTnpQX3kxWWFYSTdTbTJ0VUc2NXpQVWcwVG5ibDJITjJsQXRaTXZXaTA?oc=5",
+      "classification": "excluded",
+      "reason": "Explicitly outside the United States"
+    },
+    {
+      "id": "968d2c2f2f270f779873255bfe628f6c391e2899bcf0cdad4ae80b341c69e58d",
+      "title": "South African police probe mining feud, business rivalry after shootings kill 27",
+      "source": "Reuters",
+      "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQR2EyakRfYnN4VnV2MFRsWmF1MXRHQXBObVl0c29NMEJoRUFoS0JCUVlWaEF5T1dqb3VHRHNLOWsyVXFoa2ZfcGpSdE8xRWVZNmJoWGhWVUVsbWEzRF9Tb01sQmgzaHVfTFAwLWtXMWRRWGtvdUlFYlFET2Y0eHJJT2c3cUJJcU1VYnZmMEpKc2dJYlVuaEk0UnFhYzA0dDg5WTY5bFJBNVhhOEttNThlTE93Y0VLQQ?oc=5",
+      "classification": "excluded",
+      "reason": "Explicitly outside the United States"
+    },
+    {
+      "id": "55c53814855d0c52b08c524dbf14621f6a462b53851d7d8698283d789642ec0a",
+      "title": "4 hurt in shooting outside Spenard bar after closing, owner and Anchorage police say",
+      "source": "Anchorage Daily News",
+      "url": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxPTVdZS2lyT0hYeGJ3NjNxQlFZa28tLXNxOEdTMHMyRmtDbi0wc2FSZWdkUWlleTF5UFd6UmotMVlPVWMwZEhWUGxmdkUzVm5aYUtfbWJtcGtVY2pWMVpZRWQ4UGk2V09IRi1YTC1pemRXbjVDWk1wTVBwc0hpd280RTdwUEF0TVFERGUwZkc1MlZwS1NYdlI0Rldxb0lmYS16U0pvMUNsUmFxdlNOYnBUZ3V2MVBYYkJoYXZuNE5uT0hHa2VxMUo0UFU0NWZzRE9hXzh0ZmhaVQ?oc=5",
+      "classification": "likely",
+      "reason": "Headline explicitly describes a shooting or gunfire event; incident facts not independently verified"
+    },
+    {
+      "id": "9af2b94fb8adbeb3c7970a3f9f8bc3b454c9c8c7a662ba28c98f2c69ab294cc6",
+      "title": "1 dead after shooting in Kailua Target parking lot",
+      "source": "Hawaii News Now",
+      "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxNQ3hVcFpaMVZBLWdkQ045Q1R1OGFZdXBWOE55a01fbVRidVI4QWdoVzF4dmlmUEU5T3NwUkxHN3BKZG5xRkluODhKV05tR2UteVFiRE9qdFZpWTdBazh1a1AyZWRoLWEtTkhGTDVDVDlsRmpkdGVpVW1PcmNONUZsNks4VmpIYUdBQk10bG81LVNja2PSAacBQVVfeXFMUGxXclVFOHpiLWRsZmZPU053TVZYTENBN0JTX3ZXUm9TcXFBaE83a3lHZ05BOXNTN0tHSmN4d0tlSHZTVzQ1OTRObUFGT2JDbmVybThqRjEtOEpnRnVQUXBnQjZaZ1ZvOWtydUVwUVhEOS1fVTlvTGlaLTFQWVIxMWY2MFFTRUVfQjl5bGVKMVhWMzN5ZjdRVk9wdnRPdW1aZDlPcm52YzA?oc=5",
+      "classification": "likely",
+      "reason": "Headline explicitly describes a shooting or gunfire event; incident facts not independently verified"
+    },
+    {
+      "id": "8758c8d7fd28d8cc60882275ab0a24198e7123192db28c6a4c66e90b3440cfe6",
+      "title": "Man dead after shooting at Dublin Sports Grounds",
+      "source": "NBC Bay Area",
+      "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxNOUFZejZLRFJPRmZpNEY5N2U4S0xZbnY2N3dmWHY1LVNzU3N3c3U5dHlrTWU1VU9VeWhUd1VpNUZ3dnc3aWJrd3haOFROUVRNQXEweUxHelJWd2V4OEpzR3drWmoxRk1rNElWQm03ZFFmYXVLSTRXR3ZVXzZzVmt3TmhoWjZ0S1VYbEo0Q3dEa9IBlwFBVV95cUxPRHpUUnU0V2x1bVlrN1VDc2o1elpkY2phT2xRYmhUZEdaeUg2ZHBVWEFqcEdqRVA0XzBSQXRqc3ZPQWNVZUlyTUZubGNTUlhEb3lkVmtvNUlLMjhVM1Jfd01xM19TZ0NBU0F6ZnFGajI5NkZJbEpCdXJWYkNIcTR6bnFmR0RrWkJhOGtHRHlWdGVQbHVQTG5j?oc=5",
+      "classification": "likely",
+      "reason": "Headline explicitly describes a shooting or gunfire event; incident facts not independently verified"
+    },
+    {
+      "id": "ba284a432c7137af3fdf0ed1b1c69db2fa5d4eede6fd96996615d6d75a7ed6af",
+      "title": "Wendy Baptisme charged in Austin, Chicago shooting deaths of Deangelo Johnson, Angela Johnson on Parkside Avenue: police",
+      "source": "ABC7 Chicago",
+      "url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxQcVVvb3pxYjJndUc2MHpkZGd0a0M1c3JpYU90YXlxMzJadGhHUTdKS0dUbVBwakdXc21peE9FVS1makdQb1BHa29oVElReVlub095QnhFMW1GLVh6N1R6Ny1oeWZYa0ttNDloWW5zbEExOUloRnQyNWFrV1JlMWZGLWc3bjI4eWdQcTJtZk1XYk92S0RPSTFhcEFqeFdBa0NqWnlHRmZJYkcwVm51TndGUHNCVTAyZmpGMHhRR3h5d2xiYXJwVXYwS2gwT2NVVVFDOTBaYkln0gHbAUFVX3lxTFA5TkstOUhqdXE4cDRmaWdDNmdOR1hHRDZlcmV3U0hLRWpjdGZyNDl0SVNoenF1bVc4N3hFTW1ia2hGdTQwWUF1VXE3TnZRYWZNaEh5MkI4LTVzNTQxdTQwM3k3b2hYQkVWR2xfTERlYS1OVVRVdnlKSURYVS1HMzdHZ0lSWEJpME1rcElWNnVIUHBja0hhWC0weGtJVUpkM3VkaVhoVFBpZVdJRndiRngxSHRVdG5GMEhjckZQLXYxUXByOXctTFBvLWZzajlYbXNIWGJFcVc2d2UxVQ?oc=5",
+      "classification": "follow_up",
+      "reason": "Legal, retrospective, memorial or subsequent coverage"
+    },
+    {
+      "id": "ca276bcfb1a0fa39cf927267883174737b131a695c1681f5fd87819d4433a218",
+      "title": "Mass shooting at Carolyn Crayton Park leaves 11 teens injured, sheriff's office says",
+      "source": "WMAZ",
+      "url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxONkFNTUxBLVhVVDdFLU5XejdiZVhDYmJyN2tON3RJQndESFBmUWtLWWVXS3pUdXhEdkNxbkZydGs5dzd3bF80OTJ1c0Fpbk1Bb1o5N0F6azdKQjZKWmtvejJYU1BKZUVqUVdGQUMtQ3haN1hzanZReDJmdERXX0YxcFE3MkxybjBkQ3NFX2IyYWU4c3ZBOGRVMkNsTURBWjVJX2llb2ROajY2Z2JPR3FYSlNoV2JqNXczU0pPU1o0NnY3RDNySFRSMFRaMVp5OUk0bDJoUFRn?oc=5",
+      "classification": "likely",
+      "reason": "Headline explicitly describes a shooting or gunfire event; incident facts not independently verified"
+    },
+    {
+      "id": "210c9de281d4b416de4529fc32b195c7c840cb09b0d2e94c0c3e7af5d18908ef",
+      "title": "Two mass shootings in South Africa leave 27 dead",
+      "source": "BBC",
+      "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE1OcFRmTXRXMWwwbU1EajhqRUl1SXdfLWtsa0pXTzU4bTBOY21jVHp6Ui1PRUU5TmlVQmNPVDZkWC1wOFFBS1o5azZZdE9yT1RLbjctRXZJMmN6UzQ?oc=5",
+      "classification": "excluded",
+      "reason": "Explicitly outside the United States"
+    },
+    {
+      "id": "c45a06f09c36d85a10c77bc12b9b7a82867d8e5a51c539de4f958907f17ad96a",
+      "title": "South Africa police hunt suspects after twin shootings leave nearly 30 people dead",
+      "source": "CNN",
+      "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxNbU0yQWVXakpuQm5uY3hKQ2VhTk9fRFFuWW14RE9WaFprLWt0eWZFZEVEZlJMN3hfTFUwLTAwODlqT2dQVjVmYVVrUVNnOXZveVpKY1RuLTVLQXVQTHJLNUZwTFh2VS05VjFIQmpfMWlNNEt2UzFPZ3Y5R09ZMW45ZQ?oc=5",
+      "classification": "excluded",
+      "reason": "Explicitly outside the United States"
+    },
+    {
+      "id": "6263a46f72d98d9a1df8654bf45f82c148a4b01b10e6b9b6845b54918b65b0e3",
+      "title": "Man killed in shooting at Dublin Sports Grounds",
+      "source": "Pleasanton Weekly",
+      "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxQaGhkYUpDYTVPZTZ1bEM3NE1QVk5mRkVtb3lCWVU2RE1NOE43dUNfNjFiemxlU05kQ24tZWdJYTJ1QzRVT3ppLVFaYnpGdzVfaFlrZFI1Y2xuWHBwMngwZjNCLWlKUTNHQlBqTHc4b0o4cHRmNERzaXpxdUZ5VGFoTnlUZ1VOTnp1OTNjRExNRFlLdS15VU1zQ3pRN3VNY00?oc=5",
+      "classification": "likely",
+      "reason": "Headline explicitly describes a shooting or gunfire event; incident facts not independently verified"
+    },
+    {
+      "id": "5fd58fe7b7c6d83ced7be27dd04401e1d62dd19e3a1916be81ef01f49092848d",
+      "title": "Man in critical condition after shooting in North Philadelphia, police say",
+      "source": "NBC10 Philadelphia",
+      "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxPeU9HZDBjQnBFNWdkNkVkQTRhTzVYM08xYm9lak5Db0trMmJFa0hmNGVucnBZYVgwUzlsQTdRTThRVEVfNjZfakJZNmQ5Y0ZUR2VrdXJKZHgxd3dpc0owSVdMVFBPWEw5T2tfWTVfM0owMEExd2dJY056OVNlYUJvc2NrV0IySnFvMzlGTU52d3FTMEhUN1FXcWRYWlQ4ZE5uOXFJUkNGeEEwdHpOcldMNkVRWmF1Q2NBYWpLOUlxbG9pSkHSAcsBQVVfeXFMUGo5aHMxeWVJZnNBZDhMenZUcTM1ZmdpVENwNUNEZ2xyWkQ0R09yTFFqVXkxakUwSXVUVEttN0RhX0NoZzRralU1X1ZDOXlYMlcxVFdxejZhbWdjNGtKZWhteEFmZElCVGdSTWxYTUxzbGJMWmJhRG1VNUFXZFNObENPLWhrNFc2NnBBeGVvd1B5MGEtbUR2UHhrUUdOelBBWlVCX0plY0hWRDc1dkU2Tk1NcmRZS3BZWUVxYU5jZlVIV1JWZXFEaGVWaXc?oc=5",
+      "classification": "likely",
+      "reason": "Headline explicitly describes a shooting or gunfire event; incident facts not independently verified"
+    },
+    {
+      "id": "7b494c8d6a35166697cb0d8b73c58f559cbc4508632c9e41fcdb1516bee8ad8f",
+      "title": "Two injured in shooting at Caraway Speedway",
+      "source": "wfmynews2.com",
+      "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxPeDNQTHBLSnZYaEp4SFAzc0NuRjJoTWtSVkMydkRGbTBmU1RoNVRNb3ZLVDIyRVh1clRtRThYa1ZuaFowT190dmFKLU9RRDVVMzRoem5LanRaOWVNQ1lGdGtOZ1VKbEhycXR3VnF3aFdaMHFoMU1pQW94QXVFM0xJejUwNWlXbGg4M05EeEJ1VXFqOEp4ZkFwOWVGVV9oNDI5X3h3WmlRb3BkOUxyMFY4RDZIVm96OUVZTjJmRlRWZVMwTnhwdDdJ?oc=5",
+      "classification": "likely",
+      "reason": "Headline explicitly describes a shooting or gunfire event; incident facts not independently verified"
+    },
+    {
+      "id": "41f84401b4421b0297864548c88d1ffc9071c594e25fb44d1692c9137c7bc2d1",
+      "title": "Mass Shooting",
+      "source": "ABC7 Los Angeles",
+      "url": "https://news.google.com/rss/articles/CBMiRkFVX3lxTE96eHhKcG5nSlhvanNud2I2VHgyal9hbkRIdmVrYTU2Uktrb3Vqam5iWTJfY1d6VkhCV1BURUthckw2OFBNdEE?oc=5",
+      "classification": "excluded",
+      "reason": "Generic topic page; no specific incident in headline"
+    },
+    {
+      "id": "2bd125a370e0d85488b21ff7da51aaa4ee52f9350a435de8b5a9b4d7a21285a4",
+      "title": "At least 27 people killed in 2 mass shootings in South Africa's Johannesburg, Capetown",
+      "source": "CBS News",
+      "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxNV1dSbUNYLWhzR1hRNDJ2N0VEdUllRGJNTDVNbDRMTU1xMnJiZUZyYTFCSGVkb2NmeXBsY2RKX0dac3o5eTBTVERQYkhQbWRJWFdJZ3JZQ1BkMFJQOERGaENyaWJMT3oxTFdoWmh3RGVTTW51QTVPVFdmalVydlhmVm5FMHg?oc=5",
+      "classification": "excluded",
+      "reason": "Explicitly outside the United States"
+    },
+    {
+      "id": "f89070f6fabc472b72bccfda90516ace54e8106814f5e0252f628eff2ba99b13",
+      "title": "One seriously injured after shooting near Nashville vape shop",
+      "source": "WSMV",
+      "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxOOVhRbWF6OXJFaHQyS2VlZGhhemNSUHpNOE5rbHFnVXFGbXVxT1oyQ0JyUEpiVlVwLWQ2N2lIbWVITFpLZUNGeGRHUDU2bHBFdFYyeTdZSW55ZUlHbENPMHhXZ2tvWVBRNGUxMEpyZllDcXQ2b0hlOU5wVWxSNklPd1Y2SE1CZDlTVFZYeWhaTFVmZ1ZSdm5LbERB?oc=5",
+      "classification": "likely",
+      "reason": "Headline explicitly describes a shooting or gunfire event; incident facts not independently verified"
+    },
+    {
+      "id": "6f06d24835427ae254f78f7edefcbb3c20627f21575feead56c7aae38af4d16f",
+      "title": "Two injured in shooting at Caraway Speedway",
+      "source": "wxii12.com",
+      "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxNNGV6RkRfSGpHc19mb2hFcHhyUnFSdGNaU2lXc1hfRmI3S3NuVWFHcTZTWE02TWlJb0VmZUVSV0xFQlpjSThGZXYwOE5BdXVoTkdKaGpZN0duQ0NSNzBORXoxaHp2OXVJTUI5Q1NsbjZicUtsemlycERmYWJUZFhKdTdmWk5nanpOR0NF?oc=5",
+      "classification": "likely",
+      "reason": "Headline explicitly describes a shooting or gunfire event; incident facts not independently verified"
+    },
+    {
+      "id": "4132340684bcdc40c86026af394813e6a2c33b605f409c08d6c1588b0de6caa1",
+      "title": "1 dead, 1 critically injured in Harnett County shooting",
+      "source": "WRAL",
+      "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxPNGh6bjJ0YkJOZ3VJWlBhcGRLNTVIZnB0OW5XVlR5ZmdVQlQzMC1aS2dGMWZDSEJzbUs3MUc4dVliTXVhZnV0aFZ5ZEcwOGVEeUtuVDhUQ2NfZ3kyMXhuOVpVTGlwbkFkYkdHZWRsMjB6SF83ZUJlQmszUXZoaWptNUFkWnBpZ2V2b25aWG44QkNpR2EzMjFaeklKeDVhU3JVMzdrNzhVeFVYdw?oc=5",
+      "classification": "likely",
+      "reason": "Headline explicitly describes a shooting or gunfire event; incident facts not independently verified"
+    },
+    {
+      "id": "d406cea68854ac7066690e7eeb8271dc650694e9d834c0bf57a48825c2f462e2",
+      "title": "14-year-old injured in accidental shooting in Lawrence",
+      "source": "Fox 59",
+      "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxPMm9DQ3BHUV95bUZOa0JUTW56SmtxWE9ISlkzaUhkYnJ4cHBDTDItSFM1UmpEQmZsNlFtVlFkQjV5QzA0YW1MbEhjRXlMREpoMTZ4ZWRDc24yeFhBMlZ0UkpIWTM3U0N3d2ctRWtUMWYwRE5KRnNZejhqR2RjWHdGSlR5TWPSAYoBQVVfeXFMT1BBNEtPTV9PXy1nRlpaX2RicW5xaUlVaTBaUGV5RnJkWVFGc3lnZEg0V3VtTjlFYlBBSVl6ZFpsaW9GX3lEYjQtS3pLbEVQWV9HbThoSXlVRXJKWHloOEg3OE4tZGcwTmV4S28yVGFrUXdEdFg4azRxZmJRM0JKdHlfenZBQXVVMlhB?oc=5",
+      "classification": "likely",
+      "reason": "Headline explicitly describes a shooting or gunfire event; incident facts not independently verified"
+    },
+    {
+      "id": "655c4917ad2f2fe8103a7122d1f040a943a1e8dab6fdf03e2b8a1b1d290ecc97",
+      "title": "Police investigate burglary and shooting in San Francisco",
+      "source": "NBC Bay Area",
+      "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxON19SSmxBYmxRZ3NCS1NCdk44SmVSYUxWa01RdDFtOElhYk1OaFEyak1DcHBmQkJXa1dvNUxIZVRIT2pNUno3UUVhakJkc0JvX0lvLTZ1WlA0eFJfdU16UktmSjhuckRwSjZhV2Jxbkx0TG1ZSjlwcS0wckpiV244NmlhambSAYwBQVVfeXFMTzBSMm0zV29yc3RIQ05fMHdhRU04cFhtZzk4LVVCQi1GLS1QQXdnUzdaNUhVWlNUSmowaFBkZlFQUWJ1eW9VMEJ4ZzdBZ1B1aDBZWk5paEp1M2ZGM1huVy1DemphVnU4T291dWt0V0t5VWV3LWNScXRuSkRGaGNfVmNwdVZDMzh4ZFdVd2Y?oc=5",
+      "classification": "likely",
+      "reason": "Headline explicitly describes a shooting or gunfire event; incident facts not independently verified"
+    },
+    {
+      "id": "4605cdc664ebbbe809c584304b4dec5873d86599d569e1137ca4528e9feeba8f",
+      "title": "1 dead, 1 hospitalized after shooting in Arden-Arcade",
+      "source": "FOX40",
+      "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxNZ0JabG5Dc3NwMWNoNmh3ZGNkX0JFNlNKeHpSaEI5YVFBc3c4UHJ0MUFwWm1Jc3NHRHNhSkJldzhVdERsYmNXU0FhU0N6b244OHhDT3FmSXN2aE15OVFVNENVQ1VtSHQ3LW9FN1ZuR0N1YmhyZ1hZVEVYenBVY1IteGJR0gGHAUFVX3lxTE5JYUZ6UVcwQVJhSnQtaG13TmM1TTN2aE5fNGVnQ0RSWFQ1TVJnYlUyaE5iSnNXd3lDbDhUano0RnZzR01Da1N0VmZndzNjdllPRG5kcHlIZ3FtRHc1cTlqRVd1b3ZyUkE1UG9zeW1LdDZTY1pVRE1MZXUzZ3Z4V1dGZHBlWUl3bw?oc=5",
+      "classification": "likely",
+      "reason": "Headline explicitly describes a shooting or gunfire event; incident facts not independently verified"
+    },
+    {
+      "id": "27ae601a05663f5d286a4578aed24b25681c89676a6859d78a5e44aedf315507",
+      "title": "Separate mass shootings in South Africa townships leave at least 27 people dead",
+      "source": "NBC News",
+      "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxPNS0ySHZZbWtPdzJBZEhHLS00bU9GQU9aeUFncEV1UElZVl9iOUlXQXlWZDA1NlFnVmNlcVZpV2FXSl9CSzFiWVR3Q05GNXNnQ09wOFNZcFg3Q3J0MGFFWVFuY0JJeGhpUFpLTkJCSEVvN3QtelFWeFBKVjFqYW54Z3NmbFlaMC1TNVlDVV9DOEdjVmZjRWMzVlN1MVlIaENLdkJycG5TUlB0Rzc3X0NYN2tvZ2h2QTRYT2c?oc=5",
+      "classification": "excluded",
+      "reason": "Explicitly outside the United States"
+    },
+    {
+      "id": "0cf016f0a4d6bc14e10efa80a4bb1cd202baa10cef8dcd476cfe8535103c71ca",
+      "title": "CPD: Woman hospitalized with critical injuries after shooting in downtown Cincinnati",
+      "source": "WLWT",
+      "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxOajVDcW1yWE54bzdNNlhIUWtLQm85OWFjbm95Rk5ndkxCM25RTFJldXRRWG8zbVdJSjlKdWFZNG0tbC1oa0tKNFFaQzVuV1RtOTc0RTJoekdWZWloV29mMVBkc244dV9SZHNGcWJYZFdKc3J1aG9nTFpaeUdCVWkwMkMyV1Y5S3UzYWNzZkFma2xaUnRwN1RCUGhR?oc=5",
+      "classification": "likely",
+      "reason": "Headline explicitly describes a shooting or gunfire event; incident facts not independently verified"
+    },
+    {
+      "id": "6ef1be07fcde5e6bc7345c4ac24c96b6e1036fb070e56aa1cdbf26c903029fbc",
+      "title": "1 injured after shooting on Bay Bridge",
+      "source": "NBC Bay Area",
+      "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxNRVJBSWRKRVVmbXhlTlVrb1BHU2R0NWVrOEFrMDUxak90TmU3ZEpLa0RKMHFuYVJPZ3FQVDNEdi16Rkl3eDBCUlFQUFNvTkhBT1AtRks1VzdNVVJIX1Bfc004a1p1WnEwQU5IaUZ4aUJLMm04VHJmdUY3bXk4RE1YY1htS1RyNlc0SzN5S2djVHg4YjlsZFFFRkpZRzlvWDk0RzQyWNIBrAFBVV95cUxQV19hQ2NzY1FZTWswMWJETUZDY2U3Nzk5cGFtcE8xUU1TLVhKNVFwbC1QT2VMbjFJOEJmeDVzVm80YWF0UFFiY1h4anJZaHFDOEJScC1vZVVWWnRhR21yYmZLLVlFMXJpUlExOW5fQ2pCM1h4Y3RFZ292d2poSW9qU0tRYm41alZQLTVJazlVeUNQTGdMSmRZQVh2YVNDdUQ5MDV4RGtlREdrN0x6?oc=5",
+      "classification": "likely",
+      "reason": "Headline explicitly describes a shooting or gunfire event; incident facts not independently verified"
+    },
+    {
+      "id": "76ff455166d2f268a4214604bb85054690f715700589aeca7443e7f198dd0232",
+      "title": "Idaho In-N-Out shooting: Good Samaritan who confronted gunman speaks out",
+      "source": "ABC News - Breaking News, Latest News and Videos",
+      "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxOOVZieXd3SlRad2lzVlo1UXNVWG9GUWFfakNoY0xrQ0ptZTZhLTJJZk9wOXpSTG5NMmdTZVZoWDVkaXU5cHRPZ0JtN04wLV9XYlBMT1JIdUNjOTd6NUdURVJyYm5PblZ5SWE1Q2s1ci11bFo3VXVjbGJNeExyTUppSDIxWHMtU05IaVVqVDYwWlhLMENvbW9DbDl0M3nSAaIBQVVfeXFMUFV6TTFyejRjQ3owUmNuT3F2Q3gwRlRFMGZ4Q3ZpVkRaTGxfOGlTN2dPMzJlY0J2S2VITmRJS0pvc3dtLXZhOGFpRHpGQlJfc1hESmhpY3c1ZVo4LV9xaDZON0JBcHlFOExWRmVWOVlEU29oM3haemktdEViRUJRQWxXUWVIQlJ0OHVVckhlVlZMVVhlY2dNeUM2VkRodk1EZGJR?oc=5",
+      "classification": "follow_up",
+      "reason": "Legal, retrospective, memorial or subsequent coverage"
+    },
+    {
+      "id": "303610d92b65e4b845f84168ee4ebcfd0df82c93f432c2cce06f600bed9f7c88",
+      "title": "1 injured in near north side shooting",
+      "source": "Fox 59",
+      "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE1EZmRoQjdLZVYzcmVXeEdsRE9GZy1TdUxNbnVCbEdGdlIwVlBxYk1YR3JjcDMtenRvRlFFTm11Q29NZDFYdVlXRGtKUjFKRmNMbjQ3X1dxWW1jdVg3R08zcDlUVU1OWko0OWRRZXd30gFzQVVfeXFMUE9vY3hkaDFFOExGel9sWG1vM3A5cWpnbno3MEp3SEdEalhTX3JKcjBpWmJ1SUt4Q2xXMWRGS3Buc3g2MmlFanZtZmpUeklZaThCMzQzeU11eEdvSTBoZWJDNGpiQjAzM3g2aktIdW1sNXBDbw?oc=5",
+      "classification": "likely",
+      "reason": "Headline explicitly describes a shooting or gunfire event; incident facts not independently verified"
+    },
+    {
+      "id": "ddf55ee07c83ee59178a761b73d50753cdf48bab49f2ee78a3afc67fe971cd1c",
+      "title": "1 dead after shooting in Kailua Target parking lot",
+      "source": "Hawaii News Now",
+      "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNd25aQW9IQ2V4ZXZ1VUUyZDNScGF2NnRHMnktamQyamFodzdGeHl1Mllsd091aHZkeHlRQk9xRGlUQXFnanRWUmRyTWlqNURINnd3M3Q1Q3djV2F3eGRLNGZvT29Qd0JRcUxta2swbWNncllKZDNDWkU4a281WXhtY1pmZE91dl9RQzhXTzRaYTNoT2YtYzFPcDhiVQ?oc=5",
+      "classification": "likely",
+      "reason": "Headline explicitly describes a shooting or gunfire event; incident facts not independently verified"
+    },
+    {
+      "id": "d817c43b12fea85a136c1f9ec0194bd5195505a754f782d2e9b6ad2787300864",
+      "title": "Shooting leaves 4 dead in Caribbean nation known for luxury tourism, police say",
+      "source": "ABC News - Breaking News, Latest News and Videos",
+      "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxOMHpyRnhZZ0xYREcyYkdpVG56Umo4TjdxeDVfRW1SUzhxX3FzSXlUbTNkaG1ZWkMwc1g5X0REYmhxZGVpVFFzVm56aTRNZ2hRRW1sOUlnaGdxWTdwb2o4SmNfa1QxLWwycEJzTDhyV1U5OUF2SkVmaUpIMFVQaFpuTnZrLUtRRFFZejBuUmNkeW5WT1BKWENYeE55cnRPUnFRQ2kyeXhqS2V2MzVR0gGyAUFVX3lxTE1vY2N0M2l2eTA1N2ZPUGpfbGhNZFM2V1JYUG9jNmRjY1VKLVkxR0hXTVdGN1lzWHVrOGVLem9DbEd2cVZXTW45THJmWG1CNTRmakJjMTNPa2lUZm92MnppTmVERWF1UVMxSGx4Q3JaczFtQmlhMndCZjNFZ1AtYzhoa1pKaWh1c0xIYUw1THZFQmsyb3pDSUpNN1dvQW1OdTBfN3gweEs4bVBTaGFaVHV3TVE?oc=5",
+      "classification": "excluded",
+      "reason": "Explicitly outside the United States"
+    },
+    {
+      "id": "d16e8e350841d0142c9a73b0bfdf948c735772ad27ca436631f6b58415c297d3",
+      "title": "Shooting at Dublin Sports Ground leaves 1 dead",
+      "source": "CBS News",
+      "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxOQUxKV28tQndqbUMxUzYzQjFHb01fYnRVUUJlZzd1czA1TGx1anVMdFdqYnRWOEZZMDhPQ1dXbWtSdTlHZWpmRlp1Q0pmLWE3VHVXTVl3Y0lIQ0VpejhIcl9raS11UWZ2YXhwaVhLWmR5eWZ5VnRQTlY1OUEwY1YtOE1ISU9zSUJzNFFHYW9XMFNLODQ?oc=5",
+      "classification": "likely",
+      "reason": "Headline explicitly describes a shooting or gunfire event; incident facts not independently verified"
+    },
+    {
+      "id": "4c1adf97bee68c9a0c4e934887680977de693bdb9a5f511fe4a3a296ce3565d0",
+      "title": "Deadly shooting hits Caribbean islands of Saint Vincent and the Grenadines",
+      "source": "Al Jazeera",
+      "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxOY1prTVJ3cGFnbFJINGtkNmhjWnlfd3JWY3NxcHdkeW1tMVRoSk1weHhnOGFuZHVRc3lMVXMtMC1YM0lIemZYRHltcXBxUGpuQ3lyRmRicXJzanIxMTJqWV9xQ2dZbW5STFFWZm5JTnRUaUtHbDdaeHVpLUVmN1FuWE1Ia3djZjNfTmFhT0JMMXg3M3NCNUVKbl84VU9TZDhVbHFuN1NRVW9td1h0YXowZURLRWRIZ9IBuwFBVV95cUxQQmF5NU9xNGZ5S1NyVlVmVmZnZFFrdURYUDhZSHJfMWwwZ2psSWpYMkxHVW9IVG93NFZuMlFseWxhUmFxbzBSTGlXRlkycFlJY21rak5IZHd5Y1NodFVGUUFxMkUzRTV5QnRCaDBfYTNIaS1MbnpWZWJsOGUxUV9vYVlUS29ZMTBDMkpYdjFvVnl2OENXbTIxa05hVmhWN3lCU3ZQZEE4OFpZajFrWE91TUdNcHE0U3VfMHdB?oc=5",
+      "classification": "excluded",
+      "reason": "Explicitly outside the United States"
+    },
+    {
+      "id": "278ffbdfd6f80312f0135d2d3956e9adb89dcd6a96036e35c8f899c788e299d1",
+      "title": "Police: Four injured in shooting near Chilkoot Charlie\u2019s",
+      "source": "Alaska's News Source",
+      "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxQSGVXMlFtWnlndFlYNmhiajRxLVRKTUtfU29WQVZ1V2VhQzctSzhGbjRCTUNMei1HYlhvZkNHQTJxYjczZGRDVklhNTZWLXpLUm9odFR0TVY4Sjk2R2E5ME9qYUVYZ0J5cVFZa1ZhM1FWT1pJZmNmb1JGQUs1M3hlVTN1S2RVU2tPSl82WVowSS1mdDU2eHJUZFdkR0FpbEJUbDNmX0Vn?oc=5",
+      "classification": "likely",
+      "reason": "Headline explicitly describes a shooting or gunfire event; incident facts not independently verified"
+    },
+    {
+      "id": "d1c2fc2b6ccb7994cc790b4b71cb43c6d518789814ab80d73cde397355b89409",
+      "title": "Shooting on Bay Bridge near Treasure Island prompts brief closures for CHP investigation",
+      "source": "KTVU",
+      "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNRjJWMTJpaWN5SXg1Q2d6dkRvT3d0cVBPQ0FHem9SbjIxdmF1WmlJZ3NNbVpUVDlYYzJQV0x3VTljRVJPdUM4YzdRdk4wZkswWGVVMzBIRDlTOEhUaERNazhOYVFRMTZ3NXZOS05SQnlkcHV1a2JBblZ0VngxV0pMNkJ3MHp0WHVaczhGb1pTcGpVSHhqaEZWRHQwWnNXMy1fd0E5MWJTNmdxQQ?oc=5",
+      "classification": "likely",
+      "reason": "Headline explicitly describes a shooting or gunfire event; incident facts not independently verified"
+    },
+    {
+      "id": "25ebfebad278fb4bfdc49de26905600bc604b49a4b09c203cad97d35e26cd378",
+      "title": "Police investigate fatal shooting in Kailua",
+      "source": "kitv.com",
+      "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxNWUVQUTRGdVN3NTdOTTZNLTJERzFTbnBDcm9hTWFBbGZFNDhBbFA3VS1HX05WUGd4WGo2dWFVeFlKSlAycFRfRXdqdzBra1J0SEFkVE04ZWhkelI0N0h5V0ttQ0FHQVlCNkpIaFVuNHJzeDJLY0ZUbmtWMUVxTDZpTU1rNUpjNTFNUXNCM2VCWXdZOENuNDNiU0Z0UnBHM3JzYlJqOTRCX1pUZWpyQ1VaY2NBUzRVNTZwWjJhd1N1VHViRVk?oc=5",
+      "classification": "likely",
+      "reason": "Headline explicitly describes a shooting or gunfire event; incident facts not independently verified"
+    },
+    {
+      "id": "164790bc24ca891ffb93a23bec76ebd2c6b815d6b346f627ea08bfc8d285e6e4",
+      "title": "One killed, another injured in Sacramento shooting near Arden Way",
+      "source": "ABC10",
+      "url": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxOVHByOVFUZ21EWjNfRUhCd1BTNHhQNm1sVXpuZkp1VERfbE1CWklpU1VETE9BZ3I3Yl93Y2FHMWJHbk02cDhoV2g0UVRLVktIaEtBQ0VHUTRxR1FxU1ZKZC1haXdTZm5qV3NBNmN5OEVQTUk5UklzOFVNYmJHU0V5YkROWkQ0bVRoVjlhZFhmc09mSlJYbTd4VHVvZkpMZ1hOZHJDTVpRb2FoaXdNSzVyU0tmajNpLVVxclZYWkhieUxORy1TNE00T0lfTHJNZHZLalNKaEhSQkpXaGFIaGhR?oc=5",
+      "classification": "likely",
+      "reason": "Headline explicitly describes a shooting or gunfire event; incident facts not independently verified"
+    },
+    {
+      "id": "00d032fe1e71a74827568ac8c6ee0f0351dfdb6cd9ff02fe4fc5add761937ee6",
+      "title": "Teen Colt Gray sentenced to life without parole for deadly mass shooting at his Georgia high school",
+      "source": "ABC News - Breaking News, Latest News and Videos",
+      "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxNN0s3dTlvWU9LVnpfUS1pYnZSai1NNVZxRF9VZEZOLU5PVjB0R2FiOTR0LW9iR3U3OVVuS1E2RFNMYXNONFZuRlNHWEZvMkFUdUVzQVlPdHJfaWh0eGRfaHBUUWtBUW11QnprTlJNNDZUbFJqSUVhV2Q2X21URFNSenVTcFFrdnRFLUVYRENFRkhEX0h20gGaAUFVX3lxTFBuUDlJTGFhcm54aDB0SjVrTUptU0ZvemU1RGh6RGV6UG5WUVNmN09iWTVtTVdNZnh0c2F2YWtyM2tSamR5V28yOUZZRzdfX001ODc5YXFiMXo2RzBSRVFZMmR1MkctNkRiN2hJVDlkTWxPczRGQXVYRTctdEtuSk9DcmFvUXdZTWVkd2wyaC1zOENkMDRxZ0Nidmc?oc=5",
+      "classification": "follow_up",
+      "reason": "Legal, retrospective, memorial or subsequent coverage"
+    },
+    {
+      "id": "00af352f0298068a1bbfc0f2f18c4cc44c07dd4412b861a7a22b793c706a2c6c",
+      "title": "Shooting in Arden-Arcade leaves 1 dead, 1 injured",
+      "source": "CBS News",
+      "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxNbUVsNVRDT1V2Xzh2d1ctVnBBUS1vb2VCMEE1NDJiMktNbDd5SVZvMGVRb1NObU90dzFVWEtEZzRldGcwUHNYYkdqUjBYRWQ1dGliNFN6dzFZalFNYkR3NGJhSGlqZWg3TU1fRUpuc0JSckRnUTBzYlFLV2dNWVlueGFqTnZFVks4dkh3ZjFJMFByeFdBOUZjMGRzYnF2dw?oc=5",
+      "classification": "likely",
+      "reason": "Headline explicitly describes a shooting or gunfire event; incident facts not independently verified"
+    },
+    {
+      "id": "d82b65a9ea5b6d5814e6066b08427eb5fd26f1ecba1466d7921af28057eebdd0",
+      "title": "SFPD investigating possible link between early-morning robbery, shooting",
+      "source": "KTVU",
+      "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxOekM3NktiNnNEQXZrTm4zTW0xRUV3N2Niak5IRE4yY0w0aGJESmJ5eVpzOHprUnhaX1QyaGFFdzc3S0RIRjVnenRac1ZVRDV2X2xPb2w5c0JGcXJkdWN5Z2VyWTVkSVdjNDJMSVphbVRpNzZoUFJheGVtUWdDRnpILVNpM09QbUpGSnVuZmpFZzZkd2lBbklRRzlfNk50Zw?oc=5",
+      "classification": "likely",
+      "reason": "Headline explicitly describes a shooting or gunfire event; incident facts not independently verified"
+    },
+    {
+      "id": "020acf762dd7c3d40596fb0060ec7d75e276c845b41a69b2939c9f70b5fe38d8",
+      "title": "BREAKING: One person dies after shooting at Kroger on Campbell Lane",
+      "source": "WBKO",
+      "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxQMjI4ZjFaUEV4aWlrYmpyazExRnpGSFE4d1lSZE9CLVNqbnNqeVNSc2FNVE1USWFEM1lnX05yeWRUblY1YUZ5YkFzYnhuRTI4QTFHWUVidm9VNE1BcTJ3WHc3Y2QwUkJwb0FFS1NZai1LMFJTc2JuWjVTTzgweEp3QWgySzR2REIteFFiOHB6dUl4eklCNWc?oc=5",
+      "classification": "likely",
+      "reason": "Headline explicitly describes a shooting or gunfire event; incident facts not independently verified"
+    },
+    {
+      "id": "bfb243098e39bdb54ff2793a451cc26609d44cb779a41e41e2a4875aef2e3746",
+      "title": "Woman injured in Henry County domestic shooting",
+      "source": "WDBJ7",
+      "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxPMEI3bXhSMmZ1eVlIOXh5V3dESDBsc2ZNTUl6UUxEdVVIYUtsWUJlV0prUFA4bEQwMHZBLTJBVHEtdFRIclZmVkpNellIZ3N6eGs3R2g0bkI0YktFTlNIZzZQWkFyNGRLeUkxNEMwTkVZWGFteXhxOHlrWmh6VW5oTUlBN0I?oc=5",
+      "classification": "likely",
+      "reason": "Headline explicitly describes a shooting or gunfire event; incident facts not independently verified"
+    },
+    {
+      "id": "59456beea5150a7dbbcec53656e26ec85340efddf2164ff49113f2722b728b0e",
+      "title": "Police respond to shooting near Lamb and Lake Mead Blvd",
+      "source": "KLAS 8 News Now",
+      "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxPemozbU1hYk1LWXJvZm1BZ213T05ZaVZJSWQyeDhNTUNRYWxsV29ObUZCSGdZNVlYUXNrcmZLeDNOOVBwUjhaSnNMcVNTSl9YZFJaU3ZhUzFjOGE4UmY1XzBBMENXZnQ2UWlleXBTN3dodDI4U19PNXVya09fOEpzaEtCSHhnLWlDRmtkVVBFdXFaMWNJYURfbkVDNjRmUdIBowFBVV95cUxPWDBIMTdCZnpYcFY0YlBhMEt2dTZPVDhfUldNMlp4TEdpMzU3YnJfa1I5cXg1TjZOSlUxMFRhQmdQRFZOZ0pXOURZajF5M0pBdUJWYlF3cmRtZ09jZ2I4bmZUUmFnbGluN3pUS3pMMUNhSmJCMjhWYXpRd1ZmVUE5akhvVkd3RVZZNVlzZlJ3b0lXRlBHNk1wSl9LQ0ozTUFQV1lV?oc=5",
+      "classification": "likely",
+      "reason": "Headline explicitly describes a shooting or gunfire event; incident facts not independently verified"
+    },
+    {
+      "id": "a2455d77eeb6c60193f816077b62d85f7b61a050e2a16ed9ff92685a62b7028c",
+      "title": "Woman killed in overnight shooting near 79th, Wornall Road",
+      "source": "FOX4KC.com",
+      "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxNVUhtdXgwd3BYZ2U0VExpZ0dFbFJTWko2MWF1OWVETWVveW9fcExHVndXbkhCdTVGVGpodkdKNjBtUm1MOVJzbS0wc1FDaTBFMEZ3S1Zoa09jblN5YnhkNkQtR20zMDVfLVBLSHl3aGhqRWJhaUJmdnJXcnhGdUxBV1k3Zkt2ZkhhWUHSAY8BQVVfeXFMTkpOTng0dWhMNXU5c0pLY1NuWWRBc2loNERhbXlMbHdFRG16TXJSd3NkMWVLckIzUmFLV3Fxb09Rdk5welJCcFVRWTFNalZTT2g5ZE53Y3g3QlQ4R05tNVhtanZkbWFpR21KVV9pNmdlck5SdkIxSWsyd0FncHBsT2RKcmp5bDJTYnRTMUpsZGc?oc=5",
+      "classification": "likely",
+      "reason": "Headline explicitly describes a shooting or gunfire event; incident facts not independently verified"
+    },
+    {
+      "id": "896ff996a8d67911263d1e5605d9ab4dfd3fbd4e3a9a5e3d2202cd0b27a5d3fe",
+      "title": "Sacramento police investigating deadly shooting in Arden-Arcade",
+      "source": "CBS News",
+      "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxNYXg4TXkyM3c0WUFFRmlnY2NxVURndnBHcmNpemFyX0ZZbkNUQm1vbkd5NlIxcGNBc0JCZWxaYm1HMUN1SkVqYmNPeElFci1OYTJEZEJJaC1UMFZGcDIzTjdwT0kwdHhrRlZmenVSREZNaGEtTFpxZFZBSDh3VFd4eDd1THlNZzFEYjE2ekwzN2RPbDFGaW95aWJNdXlEYV91NVRndjlUclU?oc=5",
+      "classification": "likely",
+      "reason": "Headline explicitly describes a shooting or gunfire event; incident facts not independently verified"
+    },
+    {
+      "id": "9d62b1aa2ba6360db3ebd61d6b6ae8bcfd01cc8dcec7a8fd0f83b1bdd879be62",
+      "title": "Teen boy arrested after gun sale ends in shooting outside Bass Pro Shops in Mesa",
+      "source": "azfamily.com",
+      "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxOY09qSDk5QzlhRlZqNHlqcHAzRXpoN2ZGeUY2clJ0T0FPR1gwZDVld1JQVmNxODBCN1VoOE1SWlZvdDJ2YVFqNlpaYnc2RGY5VlJSMXp3UWRGWTRXS2ZBNmJGSEplYURUaGRSMV9CWjF3cFV5NF9oVGZ6RFBNV2FUalkxZDVFa2pQdDlnd0RpbDNFWWpSc1JlTmdkMU9JSEpReWM4cnRJNUpTS2FLWktSSdIBxAFBVV95cUxPa3pVa3N0a3RIUnlkU0lsTVVBR0QxSk9OaUxIbzRiTG9PbWVyQTFDX1FGUUwxQWJuQUk5MzhYOEoxc21BeXUtVGJzMUZFbzRhVnBUVkxzX0xZcHpmVjJYVUVwTV9KbXRCX2dhblF1ODFwNG9JOTlJa1NBcXd0UGg0aTVpYi1UdDI2R1NlWngwc00tR2UwRjhMcFBPTkhmZDA2Tk1oSk9qQXIzemV4aHZQT0VqZ3M2aFoxWkVfbk1ZSlkyTURG?oc=5",
+      "classification": "likely",
+      "reason": "Headline explicitly describes a shooting or gunfire event; incident facts not independently verified"
+    },
+    {
+      "id": "5d6f29ab3973bfe5e35436a77e0ea4b7d1e96ac28f8ecbd6f0859f2d9de220b2",
+      "title": "Woman critically injured after shooting downtown: CPD",
+      "source": "FOX19 | Cincinnati",
+      "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxOUWZUQ3VaVTVtVHVXV3N1d1ZCY2p5M0RPQ2lzdXdmVE50MTVWeG5EaDVIZ2t4ZjRIbk1RVlZDYS1nZG5BcXpXb29xOWJwdVRSU08xemtFbWEyV21ORGFKanhBX3ExdFRIUDlsdzIxX0FyY1ZYQTlSd3VQMnF0cGZxamtIYmtPclhoMUVpczkxSQ?oc=5",
+      "classification": "likely",
+      "reason": "Headline explicitly describes a shooting or gunfire event; incident facts not independently verified"
+    },
+    {
+      "id": "1c2cdb549debf6c2fddc6db2049eaec085362d7fff127cea47aadb1274f19fa0",
+      "title": "Young man shot and several cars hit in Olympia shooting",
+      "source": "KOMO",
+      "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxOWlJYWUlaY2FPeENmNE54RndyM3psUHdJTTEySklpYURmbTQ5TVNGN3ZrUUhJUHoteG92RUJ4cDF0ZGNvOVFGZTJmc3ZXY0kwal80VHU0ZXdYR1VPTEVyUG5NNWVwcnQ0WklhSzV4elpaRXJGdTNGcWhTRGRhV1UwYnE1OGtRZ09pb3hvRHdtM2p5MUI2bkRfbWxaejVVVGVBMmMyaGhBVW9MOFF5dkJjeUlmdGk1cFhwMm9j?oc=5",
+      "classification": "likely",
+      "reason": "Headline explicitly describes a shooting or gunfire event; incident facts not independently verified"
+    },
+    {
+      "id": "829c7bfa98819917e0866d27b1f7b0114568b6a891e8a755bee49b289ede2237",
+      "title": "Man wounded in officer-involved shooting in Lakeville - Boston News, Weather, Sports",
+      "source": "WHDH",
+      "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxNa2dWdWJ0ckFIVHVtdVpudDB6V19sejdWUmwxckxDV0N4bXZZa0pZLWZOMk1EUTMyYjlNNFhGU2VMcWpDLV9mam5vTHJyb1BGcW5IZThaRUJQdmJFaFJQTVZKRWluazN0Z0huWEFwMndQSlFKMkdiZDJTdm1lYXpnTjhR?oc=5",
+      "classification": "likely",
+      "reason": "Headline explicitly describes a shooting or gunfire event; incident facts not independently verified"
+    },
+    {
+      "id": "fa38c3355125d295bb135060a5e5d17cd4adc77b5b75695063d103e2bdeff685",
+      "title": "Alleged suspect and victim identified in fatal Bowling Green shooting",
+      "source": "WNKY",
+      "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE9rVVRUOFRFVWpNOFQ0MFhjUUJMSU1nV3ZUQWxPRUx6VWhKTC1BM3FGLUlNVDNIWlVMbk1GWGpDUTdqdG9BMmFzN20teFVvUllFNC0yN2hpcDFETUFOUEFrLXFuYWIxVWFIZ0lyNXdRelRwbW9pRDhrMmtIbVo?oc=5",
+      "classification": "likely",
+      "reason": "Headline explicitly describes a shooting or gunfire event; incident facts not independently verified"
+    },
+    {
+      "id": "aba2303eae78dd594e57acc1c0bffc730e997266c68a6d2a9d0012a21e9169e1",
+      "title": "Three sought after shooting and robbery in Roanoke County",
+      "source": "WDBJ7",
+      "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxQSkNNNVcyeXdfb0VXWHRHWWYwSndpRHJYNkF1eUplbE5EV0IzUnQwRW9IODUwVXZaOU1xOFA5MlRFLThTWkFWLUpGZzhMZHRGd0swMmZpbXBIaklNMFBLeWFEUnVra3J5WUY5dEt6R1J4bVhVZGJJQkJGOWltSG1xSjZNdG5ROGpLbmYxdQ?oc=5",
+      "classification": "likely",
+      "reason": "Headline explicitly describes a shooting or gunfire event; incident facts not independently verified"
+    },
+    {
+      "id": "ceb1bbe515c3613be93306c69bb9fa09b0ca830313898372e88b952c66d6bf8e",
+      "title": "Family holds \u2018one last cruise\u2019 for UT Tyler student killed in shooting",
+      "source": "KLTV.com",
+      "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxPSF9XcXZmVE0xZGZfNmxIZlQ5bUF4cTlGUFFzMmQ0WFJ0Y29wR1lLSlk1c0FSMGJPT3B0aml4WXVVb1hjMF9oUEtjYUYtVGttS0NRT1lIWkg1WnB3d1MzckNmRzBlYUlpczMxY0lNMEpJTWFGQm1tRE1vZGdmbWo3bDdKMVB5Z2JjOTRBTmhyRENzZmhSUlVsTjJB0gGuAUFVX3lxTE5Idlo0TWNUNFV4MVpJbHM1ck1POGViMTZRS1JYQjNyWVZnNndsNkd4UEVaaHFDU0JHc3NteFVJN3JaVDlXSWVEczlZWTAtOGRSUzFoazUwbXFiR1NoOURsX1pSazUtU3FLTWRfVXM3UFR3SXEyczJYdjVhRXpCODlyejdxQ3A1M3VUWmdpUGpBdjhtVFU2cXM2emdwWjBCZWI0WGdGWE5UTk9SZ2hUZw?oc=5",
+      "classification": "follow_up",
+      "reason": "Legal, retrospective, memorial or subsequent coverage"
+    },
+    {
+      "id": "8adf2c49ad7fd80c7b3043664a77c942b6ab0d1a30e2fa1cf10e094fbc377e1e",
+      "title": "Police launch manhunt after 27 people killed in South Africa mass shootings",
+      "source": "jpost.com",
+      "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE83a21VSW9BTThMYzNzRkwxRzhuQXdDbXhweG41VGRmcmp3Y0FfdVRRSjFjdHdVR2xucF9HaTNMNHhxT2QzMDhWRUNmMldrbGtLdXlWRExIOGJtMk00THdR?oc=5",
+      "classification": "excluded",
+      "reason": "Explicitly outside the United States"
+    },
+    {
+      "id": "f7c824876b457da6abc6fc5ef8f55d6e811431cc69db093cf4f18acf3607d5c1",
+      "title": "One Hurt, One in Custody in Henry County Shooting",
+      "source": "FOX5 Vegas",
+      "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxQZV8xM0IzQk93VVN6ZThoVU9GMks2UVBCVTR6UjVtRmlrc1l2NjZXWE5NdFhqWHluS2thckozdTVYVU45MXNzSWlRaGFNakhYV1pRdk9QNTI0TkpmV1UtODVCdDdsVmtSR3R1VFAwaUdwX0gwQ0FTZ3NvajV3S1NVMlg3Q3FDZWdJMjQxbFJ4MA?oc=5",
+      "classification": "likely",
+      "reason": "Headline explicitly describes a shooting or gunfire event; incident facts not independently verified"
+    },
+    {
+      "id": "93e6a54dc13fe61d8fcaf5bbda0e7732075b19da144985cd302967293cb4f788",
+      "title": "One dead in shooting at Dublin Sports Grounds, police say",
+      "source": "The Mercury News",
+      "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxQX0k1MVFFS0JVb3F5aWNETWtwWFhRY3NtRW11enZHMjU1b3BRR2NhYlpxOVlIcnFrTXN4QjZzMVN3ZlZEUDBPdXlGOXJ5QV9JdjNjUTZNdXF4b2ktLTNiZ3gxenBJcVRYOE0tYldBTFFPZlVSYmhIUW9LQ0FTaXlIMXFxQlhOX0pQWG9BLTI4X0VsT3hGb1BrdnNOQjPSAaIBQVVfeXFMT2lYam1QSnBCelhYQTliNFJYMnp0SnZMQ1NQbXJHLXNZVmo3VnlwaHZKa1NtNzRTT0tRd0JzZV9JWTdJa282dWtDY3NDUnpFSWV5cVdqM0x0Vk9BOUpEVE1aSjFwR3Ftb0RCaGtjNHJzZnFsWENkWnNIT3lqcmRWb1RxSmhNNVU3ckZCcG5mZ2l6MGM4SkxXSlFTYUFpRk5fX2tn?oc=5",
+      "classification": "likely",
+      "reason": "Headline explicitly describes a shooting or gunfire event; incident facts not independently verified"
+    },
+    {
+      "id": "456d56986b19c32ca65a79be3a15bf4f88505d5514cfb3193fbba4c045e9ad7f",
+      "title": "One person taken to hospital after shooting at Winston-Salem gas station, officials say",
+      "source": "wxii12.com",
+      "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxNQzJmQnFyamhrTl9uVTVIWHJoMnpkZGMyQW9Iakt1ejAwS3dVVkxuUmpNLTl3bTdlU0UyNmpicjNIcUREdTB3VXJuQWJpdGZ2Y0U5a3V2b0dObVhoc2VzWURvWmplZXRVbmhzWER4OG1CRUhkSkpXVktwOXBYM2hITmV1V2VyTmlZZFNKUk1lNzRPQQ?oc=5",
+      "classification": "likely",
+      "reason": "Headline explicitly describes a shooting or gunfire event; incident facts not independently verified"
+    },
+    {
+      "id": "338353b50bb12d66f2f66241d01202c040f0c5fd380603ba5f140ba1da8eb731",
+      "title": "One Hurt, One in Custody in Henry County Shooting",
+      "source": "FOX Carolina News",
+      "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxPWUlKSzRUYndVU0NyeE5CMUFyOWtydUVSV3hqUU1kNEluaFc5LVNsaGgxdzVNbTZnRVhuenJmR1otWS1DRE00dnJITWh4eHc4TW9GS3BiUUVYQ0NXM2VwWE8zZzNpZTZvVnVHM0FvN3hpUFd6bHR5VUJrTmZvMnFBSkZQTzRSdllkeXVzUXR5dzFudw?oc=5",
+      "classification": "likely",
+      "reason": "Headline explicitly describes a shooting or gunfire event; incident facts not independently verified"
+    },
+    {
+      "id": "1ce84cd7baf72f31172180e67807b19b5134c59cef66db7a83349ada8a67b3a8",
+      "title": "Suspect arrested after woman injured in Cleveland shooting",
+      "source": "WKYC",
+      "url": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxQNno3ODdiVzhvSmo0NmpneVVjbjRQSmh6TFB0RHNUSFJ2QWJrZzBRVW5vNndqbDBncGR1VjBEd0RaM2ZZMzVpNk44QlAyZzJYdEhFWUZVbGJ2OEtOVHFyOEdGdFJyNm9vOVNoRlQxSXBBSU91TFE1S3QxUHlFTjlGRGhlZFFVRmpwYUttYjkxN3k4QUQ1bGFtTl90M2RwMG9kR0J6MVhjR01pZWZ1amUtQ1Zrak9DeHRMRXpFN2E3bXB1Zm1odHkzSC1lVlo5NUVzSEJCb2RWN0JhYUZrR2NR?oc=5",
+      "classification": "likely",
+      "reason": "Headline explicitly describes a shooting or gunfire event; incident facts not independently verified"
+    },
+    {
+      "id": "b3b16599c98a721806406bcfdafd924e3b9135410a90740de768bafded747ed5",
+      "title": "One Hurt, One in Custody in Henry County Shooting",
+      "source": "fox8live.com",
+      "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxPT01zVHM2WDBYQ0VUaGxReFFOTkZVX1BDbVJwZ1JiejcydlFXOGd5bUVqWWNlZFN3U0JndGxNVEJmbjV0NFEySnJTWkR0NGxoOWNVY1laZkFzaEVVd0xUSVFsMlVpVFhZMFVNdXhBVDFyNUhqaHZ0MU0tODg3ZkdQNFdBNXdRMUJySFl5WTZn?oc=5",
+      "classification": "likely",
+      "reason": "Headline explicitly describes a shooting or gunfire event; incident facts not independently verified"
+    },
+    {
+      "id": "06a55ba5acb578182a21cafc583b0462095f78890595fadb4a789328bf9f8f68",
+      "title": "Texas city council candidate who protested ICE shooting faces 'riot participation' charge",
+      "source": "ABC News - Breaking News, Latest News and Videos",
+      "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNbnp2SFhXOTZXd2E4czU3WmNtNnZSNmczVDlMRUItbmRFSUl1VU92WGtZVURsZEZtU2VpOWlMWFhBUmZuSzRLSV9NNE1LaG41V2RoS3JYaTRacmJWQzhublo5a1ozTXJIMm9lZUxnN1ZmN2lDaXF3REg3UjFMOFBSWl9BYy12bW1WZnQ2M1pfbVJiQkpZdnB3YXRaRkxkeFRzUDJnNktLYnpqQdIBrwFBVV95cUxOd2FiTkVHNEF2eVB5R3BHZzBOQkNKbVpxTTN5WnRfOWF1enlHeFZBanc0SnRUaHQtSzVBR2VMSlhkbExTMmtLbk95U0dUMDdrVFdyVzdVQjV1R2MxSG9HX2MwVHdNZlh3ZHZRdk1pb1pXQjBCSmIxUFl4YVJCd3pqUUl6eXBEUEs2QlU3Q2NiSlNTZWVoRHlaX1ducUVqd2NPWUdQQjhpdWg2RWRBU19R?oc=5",
+      "classification": "follow_up",
+      "reason": "Legal, retrospective, memorial or subsequent coverage"
+    },
+    {
+      "id": "1f4dc61637b3d638cb584378e2351a4f52aa6c67b9d4b23ff8122c29dd1e4e41",
+      "title": "One Hurt, One in Custody in Henry County Shooting",
+      "source": "WDBJ7",
+      "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxPWHhGTGM2S1poSkI5elBULUd2RTRacm1Db0JvQ3JGWE81UmxTei1kdkprVE9vbVA4RWlHbG1peWRxYjNrdUtNY3Y2czFKdnhuQWNTc2lnRm1iV1NxNnZZZUhwWmxybGpYVGxhekZMMmNWclByNm1CdVFkUWxJNnpqekYzb3JxQXFaWUE?oc=5",
+      "classification": "likely",
+      "reason": "Headline explicitly describes a shooting or gunfire event; incident facts not independently verified"
+    },
+    {
+      "id": "1af094e7ce2e474ea1a0167fb3afb9db32a98514a2bceebb6bb487a9cf187f03",
+      "title": "Homicide detectives investigate Moravia Road shooting",
+      "source": "foxbaltimore.com",
+      "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxOejdiTG5STmg3Sk5oUnNvZGFmVE1uWUVZY2JqOV84THFpTEpoNTJXWGdLbm1FVnhWYk5vQnJxZUF3aE81ckRVdWRMUjNzY05vdWhZbHVxblR4clZHV25XVGg3SEpFUXhTR2JLdGoyTUhSZU5sRjZUdkNhX3F1eElOdXd0cjRnd2N1anBLTTgyVkpnd2c?oc=5",
+      "classification": "likely",
+      "reason": "Headline explicitly describes a shooting or gunfire event; incident facts not independently verified"
+    },
+    {
+      "id": "e36fc2d774c32c6d45542e3801348ec703b2ae1c289f17381c714c5728f33b5b",
+      "title": "Clarksville police investigate shooting outside convenience store",
+      "source": "WKRN News 2",
+      "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxOdXJEN3ROZmpERDJnbUpINWphWmRjbFljZWRnNTB3Uk43dmNvWmhVZEpTREoyM2xzN1o5V0VJQjlfeXdOc291ajBPRE5UTVViMldtMWFBcHRBMU9qWjV1U3NNa09HU2VfNk5EYkhzX3F0aFBmTGYydmVBbVJiVGMyejJVMlBsRTNNbDRkcWJEb21USzByUmxEQzJUeWpTcTVfS0VBXw?oc=5",
+      "classification": "likely",
+      "reason": "Headline explicitly describes a shooting or gunfire event; incident facts not independently verified"
+    },
+    {
+      "id": "8073b6cab68494a8f98c5d5f9a8a2d46c055f3588b8cdb12c1b4f260f1cdd50a",
+      "title": "One Hurt, One in Custody in Henry County Shooting",
+      "source": "KTTC",
+      "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOVXpPRWd3c3ZheVI3VUlIajFNTnZ3cHhPZnZ6MkhFQmp2SWJkajZXZkhYSDUzdjg0NkFUUlR0S3E2NUJtYkRRcWU4dDgxLUlYLVRwb01rM0hIX1JfdTU1a0JjUWlBUVo5Rzl6QTBjSTVxR2FsbDFpdzRRQnNzeHIzOEdCUUxJQ29F?oc=5",
+      "classification": "likely",
+      "reason": "Headline explicitly describes a shooting or gunfire event; incident facts not independently verified"
+    },
+    {
+      "id": "9ce1c3a5a3a81ad9daf9308514a56040172b3cd3927847145a23d63097a4f1bd",
+      "title": "Three taken to the hospital after police shooting in Lakeville",
+      "source": "NBC Boston",
+      "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxOVkxLcDZCSHJqYko3cEJOa1JwMGtHcDZybWhUcEtKRlg0bmdHbjdkX3J6eVIyeVBLSTZFV1JjVExVemJvd2hmZEFRN0VNSm5YSjNLN2o4cmFldDRJZjJ0SldPNVdEVUJONDlmY0Nwbjd6Sk9FeTBSZU9md1lycHF5ay1kem5PYW5ydlZZaExn0gGWAUFVX3lxTE1NZVRWU0tjMnBDQUdvWjVxSUtWc3dYS2RoaHNVcmRkbUxsaV9qWWFpbHctY2czUjk1akZpdDU2Rlp4MkgzMVJqQU9LTzVUT1F6T2dnS3dWeloyUTg2UlJBNERXSm9VdGkxVHNyNUNIYmdZUUFyYzFOQ2NKTU5oNEp6dkVOSHk4VVZjcUxaZUdaNXdUMFlvZw?oc=5",
+      "classification": "likely",
+      "reason": "Headline explicitly describes a shooting or gunfire event; incident facts not independently verified"
+    },
+    {
+      "id": "bdda327c09f896ea32847c36b7a3fa042ad703edfc2167304b42f17f8e7b3135",
+      "title": "Shots fired at a Grand Rapids park, 18-year-old injured",
+      "source": "WOODTV.com",
+      "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxQNjQ5RVNsVDBCUDQ4RGJzVzJHRko4V3kxOXVSVlJkUi1TOXVYX2ZIVEtYRTRtMUkwX0pFNTJqcTVDRllOSHpITzlpNUVhVWotSVpzQjI0X0pyVHpmaHBpQTRzbW5QTmxhQ0pMMmZFVEFJVHprN0I1Nm0wQ1RQdkJXN21RNURQeVo5RHhpNGlCNEZsQdIBlwFBVV95cUxORlpVa0pPNHNWeW1JTlVZY3R3UEVtNE5tQzE0X2NfV2NYZWVnclBnQWszNnNkLUpkeEJ3WTBsVnNudFN5em9Uc012SmZqajFOci1ibHZCODZXUWV0Vjl3MXpseDVJbExpX2laeEQ2bnFjTWNqWHVWUDI2eHQ4QWVXS2lkbi1RYmktSmNMWUxzeGxoNGVPQUNn?oc=5",
+      "classification": "likely",
+      "reason": "Headline explicitly describes a shooting or gunfire event; incident facts not independently verified"
+    },
+    {
+      "id": "97f8ed93cccc27ad4c9431fc9deac1ff9fd1d131566676da2ef9dce73499a7fb",
+      "title": "Chicago shooting: Vigil marks 3 years since 27-year-old Adam Moreno fatally shot in Brighton Park, family renews call for justice",
+      "source": "ABC7 Chicago",
+      "url": "https://news.google.com/rss/articles/CBMi6AFBVV95cUxNWkItZVZWUUNtd2huN3p3aG1oTUhrSTlPWXFiNnVmRUlSanB6eVAtRVpQZDhqQ0c3Y1RHZXpEM09ILUdjUW9zNTV1cWdfQzRVWkl0aWhiZ0ZfSXpSNVZyS0N2aERHS2gtbWxpRDNSM0I1SFVIdllnTGpLUFN0SFZtLXhTS3BmcUNOeDFkX0hfRWZFNWRDWnY2UThLQTBnbHlqSWhDMUFWVzJyYXdndWNwZ194TEFLT1c4SmcwSF9vVzhHcUNxbnhRaHJ3ck8zQ1YzNmFxM1pjMldkOTRWSnhSMHJsTzFUeFNi0gHuAUFVX3lxTE0wd0VpU2N0N0pSLV94QkFWcnpoQXF1b2hMVTd2Z3Jpc24xTm9XeUZRUHZRLWtYVWJ6WnVHTHJFSHZLZ2R6WDExZ01DbG5MOHI1TmdWWEU2Z3JkNzNrdHV0WldCMThGd3huMHRSZFBTUHF4b1p4UlcydlhxRUJOM2t6aTlWcWF4VFpQUEJqc19jZVprRlY0ZTlxNTBmc2JFUHZVS2VlbVpCZzFKd0oyNmNOaElTX1FuaWZNRVVxQWI1ejhYV3lhbWp4MHN4SmJWUjByS0NiTV82OUwzSG8tSlF6ZDdrSFNRVEVhRUFjZHc?oc=5",
+      "classification": "follow_up",
+      "reason": "Legal, retrospective, memorial or subsequent coverage"
+    },
+    {
+      "id": "e821b7bf3192c415b60f00067ec465b0ff09a9be71609e2a0c1284b05f67b761",
+      "title": "One Hurt, One in Custody in Henry County Shooting",
+      "source": "WSMV",
+      "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxQMGpIVm1xWGhOM0JtRFFVVEdUMXcxNk5mYl9mXzFNSzV4Q2dFbEVlOFNaeUJvRVZ1cUVNT1lIRnBOeHlVMG4zZDdtek9XRW9jUlkzVkRydlN3YjNnaGhNUnpfekVPU25CbEg1bHlVeFVyU1lYMVdXYlA3SVBkeHl6WV9PYTV6SEdI?oc=5",
+      "classification": "likely",
+      "reason": "Headline explicitly describes a shooting or gunfire event; incident facts not independently verified"
+    },
+    {
+      "id": "105866bf10425923c61cd6e2ea024e8cdb30c4bcff4915b9044c7a92d1f45452",
+      "title": "Shooting investigation underway in Greensboro",
+      "source": "wfmynews2.com",
+      "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxNX3ROdlY3MTJDOGk3RVhnY1RQSEdtSThoV1FzdnRHek9XQ3kzeUVyZFVhSkNoV1N1TXlTa19sNVVPS2ZpZ3BTTGlyRVc2cGVmVE1RU2ZTNlFGT3JjQ3h2ZGlhSVp4YnVCakJMZ0hCWmRpVlBTX2g3NGo0bWI1dHZ3dm1vc25HY3pKSnFVQW9DdTM4QWhzek1MN19oRTZEbS1jMUxUdWxTcngtTjdzeTZ1RmFnUDZwbW1WTkZJWjA1N2hXWEg0QXgya3Fn?oc=5",
+      "classification": "likely",
+      "reason": "Headline explicitly describes a shooting or gunfire event; incident facts not independently verified"
+    },
+    {
+      "id": "cbe628fd74ed9d205dda556f00cb1fde53c68938e658855fdff1721fdaf57614",
+      "title": "Police investigating reported shooting in Sioux City neighborhood",
+      "source": "KTIV",
+      "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxOV3FQbW5zVXJoLXd0WmNCQ3BYXzd1WFhWV1BvM3ZWNzhCRW5fQkNjcjFQQUZhZVRreGJ3WEtOaUsxNnBuYWtGUkZCNEtXUWlqTVcyVVV6TzJmbWFXVzR3WkZGQ01mT20zNmNsN2hVUDNucEtpNjlzR0hjcmQ1VE05UExqUTVqVE5pdVNLUGJTTVI4ajJWc1E3S0R0RQ?oc=5",
+      "classification": "likely",
+      "reason": "Headline explicitly describes a shooting or gunfire event; incident facts not independently verified"
+    },
+    {
+      "id": "0989142e810611fa12bdec0694bdbba25efe2d1f3501c06f35f5fe1097d4395b",
+      "title": "One Hurt, One in Custody in Henry County Shooting",
+      "source": "fox10tv.com",
+      "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxPWFJ1U1FzYXBBUGlkOVA3TDdhMDBUU19QTzdXTGxfNVZKR0RQa0x0ck5VY2VVX18zMmxGQjUzMXRjVm9qWlY2akdra1pmRV9JWVNaRXU2ZnF6eE1rSVNPOUxWTi1DNnc0bmxoLXVFMlQtNkZMSGFxaUxYTTI2bll4RVFRSHdJeDlYWEpFZA?oc=5",
+      "classification": "likely",
+      "reason": "Headline explicitly describes a shooting or gunfire event; incident facts not independently verified"
+    },
+    {
+      "id": "7db3b4656140b030a08a2d355ce4f3a1a40c128ac42025a1536122cdab04e169",
+      "title": "One Hurt, One in Custody in Henry County Shooting",
+      "source": "Cleveland 19 News",
+      "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxPb2xYQWhHQVU3Mlhrb3NScUtLQWE4MG5XeDFWaW91Y3VSbUYxWVFzUVJHMGR1QmJVXzdLVWUwb1ZlbUZxT2pmVUl6WTE1VkRXc2F0dkRqT29wTFY4WTZ5b2lSdEY2OW53RUhiT2Y4SEc5VUlXRWg0eUpSZ3RJWnRib1NfcFlKWFRJZGFucFMtU3BGZw?oc=5",
+      "classification": "likely",
+      "reason": "Headline explicitly describes a shooting or gunfire event; incident facts not independently verified"
+    },
+    {
+      "id": "ec1da68a64c42029e30daef37f3644c4e8ea159909a91db75effa3f502412b2a",
+      "title": "Greensboro police investigating parking lot shooting that left one injured",
+      "source": "wxii12.com",
+      "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQazk4S0t0UlR4dDllVjhLVm56VUhQc2U5NTlycTE0aUVHaFVacDBLVlFXd0x1NWZlMXZkSW5Fay10Zmw4Tk9fU1ctSUd3WXZJLVRUTkhHVUlITWY2ZWltMGhvd1FiWXRBTVg5MU1BTEY0NkMwZkxZWUhGam1IYjg4NEtSb1hWUWtRUms3cGJaLTFEa21hTmU0ZFFTZjFOUlowdmVZQmR0T2lXc3RaU1V5bkZyZ2U?oc=5",
+      "classification": "likely",
+      "reason": "Headline explicitly describes a shooting or gunfire event; incident facts not independently verified"
+    },
+    {
+      "id": "8dc9bae17d9db68016bbc66d293d2161350dcb297bac343850da507174846dfc",
+      "title": "Man critically injured in Frederick shooting; police seek surveillance video",
+      "source": "WJLA",
+      "url": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxONzhYZnBDY3lZTjdYVHByZ2FITGxXMEpoMFFNalQxUTBmR0VJN1IwbWpCZjk4eFlleVQwSXRCU19qUjVJZ2NwMmN2ajQtYUx2OHlGM3h5SWJ0VXpCR3NsbmdDbklXVzNtRGVrSUcxQU5uS1QzOE9EUm1xVjFVWVd2UUpvQW40ZUhQY1BOclZjT1ZtSk1jZDdwU1J5ek1zeE5DNGRPN2JhTjk3bTNsTVNBQmtMX2lNc3NxX2ZhUW1LdzQwUDFrZFNWSUFfTWJXcXJsRlAtS0Zuanp2aHlSWENOdTlhejI?oc=5",
+      "classification": "likely",
+      "reason": "Headline explicitly describes a shooting or gunfire event; incident facts not independently verified"
+    },
+    {
+      "id": "8fdd376518ae29203671d1e270cf5a99938546c4784843824f5f7b41612e88fd",
+      "title": "1 person hurt after car hit by gunfire on near north side of Indianapolis",
+      "source": "wthr.com",
+      "url": "https://news.google.com/rss/articles/CBMi8gFBVV95cUxNS2lkNDhZbl9aeUdmY3NHWmVneUpDYXIxODU4WlZCZ29Ray1BQnRCVDRaZm5NLWhySlhuOEw1YXV0UmdUamRrWGRfckExejBrTjJaQTFmUU8wS0J6YlJOY2xyRkdlTzdzdG53cFVtenZHT1BVNG5Mc202bjM5M2pzMnowZ0ctTlhiNVNoVkFFVlhXY2dXSUNHMmZuc3VPWTBCeVVPRmNDTnIzbFA1X3JEZlVVeTlUWTFEdE1JTlVNSmhqcFBSTExIcUtycklIem5YQjhLc0xBQ2s3cFFBVVBCUk9BVlZMM0pOYUhjNkxibGNJQQ?oc=5",
+      "classification": "likely",
+      "reason": "Headline explicitly describes a shooting or gunfire event; incident facts not independently verified"
+    },
+    {
+      "id": "f888b1cc065607714e67b9e790c2aa363de338f5de09e2558ff78cb41d546704",
+      "title": "Investigation underway after shooting at Clarksville convenience store",
+      "source": "WSMV",
+      "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxNX01ReTlQaVBmbW5yeC1mTzdaaEFTRXBQRlhNUDFLY0FyY3h6OXljSTVsRm5mZzdZMjVaOFhIdXItSEpNZlhYMmxkZnBIQU8yTGh0cDNWQldrc0lUMVBtSXVZSEdnNHEwQWJLQzI5d2o1eEN0MnpDaFd1aEhqWnVpSHJBS2g0djUwbjVkUTExWWZPU1VyYlY5MVhWcE5JdEZuaFE?oc=5",
+      "classification": "likely",
+      "reason": "Headline explicitly describes a shooting or gunfire event; incident facts not independently verified"
+    },
+    {
+      "id": "f3ee20d6b9d20fe671773e13475b7fd7dcb7f9abf085fbf3bad0733d48c07a1f",
+      "title": "Downtown Olympia shooting hits multiple vehicles, business",
+      "source": "KING5.com",
+      "url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxOakdXOHdHLXhWQ1BpdGQwSUFKbEZnSXlBeGJUbFJrT3RySTlHQ29GTDUzY25tRVpvVUhNT2E1Mkl6LXlJb01ia2FIU2RSd2NoNzlmZ1FmeGR6S21DTjFRU184NDd5U2xuSV95Vm9ORGdNX0pCMkVkYjFHamgyYnFwOTN5dFcwcWU3NXdTWjU0N3JaUmp0MW8tQ2IxeDNLODV1OUx6NzNuTEFTTlI1Sm5xbklnNWF2bG1ZVldJMURObEg2M1JZUlA4SVRXZnJWVkFSSWg4b2Z3?oc=5",
+      "classification": "likely",
+      "reason": "Headline explicitly describes a shooting or gunfire event; incident facts not independently verified"
+    },
+    {
+      "id": "25021150ae04044987b2daf3f18c338f7e6bafddf72a598e2e6f79ed49fff6ec",
+      "title": "One Hurt, One in Custody in Henry County Shooting",
+      "source": "WAFB",
+      "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNeEtLNGR0UEcxd2RpYy1vU1RKV3NWUXUxeDBWUEdtSEpVZjBiTUJQR3ZkOUxxdmxERGhhM3VlWHNoUmtsdkJEbVFIYmFlc0JmSTNrbUkyY0dFdzNhVWxSdnNYOHM4MHFhbTRxRDVabm5UWnpISlBhdWthazNIa1NVWFVQdEFQTFN4?oc=5",
+      "classification": "likely",
+      "reason": "Headline explicitly describes a shooting or gunfire event; incident facts not independently verified"
+    },
+    {
+      "id": "38a83761079f256a3a3c7493861da7ce3fa5a4347e74456c52dafd6f7a420135",
+      "title": "Teen boy arrested after shooting outside Bass Pro Shops in Mesa",
+      "source": "KPTV",
+      "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxQbjZRUkQ3QmQwcTdULUVjUHY1eEpPS2wyckhubHQ0T2t1ZS1zeVlFOWptVDF5eV9BTk9hVXFrU1Zsd2UxY012bUNxN1FSMFY2dnpHNkhiUnFyTVdRZWdfM1pYR19XeVJZR2thRW9WVkRLYU1NYzBCc3pFaGkxZmN2YkQydHM3M2d4Y3hJZHhIeld3S2g0NnVqRFN4MEpRX1hH?oc=5",
+      "classification": "likely",
+      "reason": "Headline explicitly describes a shooting or gunfire event; incident facts not independently verified"
+    },
+    {
+      "id": "5f9bec825826db64f4393456ba6e0dd17e89f6a81a7fdf4c18024ab8e38e6918",
+      "title": "One Hurt, One in Custody in Henry County Shooting",
+      "source": "Live 5 News",
+      "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPTXpCclJJZDNWWUo5TS1SbzNZVldqcm0tUm41UlRLMlYtYkRjeFVfYXRSaVVESDZGZjgyb0xjTjNSbVpfZk9jOTRZTFFHMVQ4QlpvaWc2bDRzTnRudHFobWJ2NldFZ2JjZC1MQlg2X0NUVDFlMnV5RkxvekFPU1ZRTTFXcnpDTFZiTkNHaDcybw?oc=5",
+      "classification": "likely",
+      "reason": "Headline explicitly describes a shooting or gunfire event; incident facts not independently verified"
+    },
+    {
+      "id": "762ba61fc2d8d799697c047a9b4145431c3f8d36d1fb6dfc537bbfe69780df5e",
+      "title": "Teen boy arrested after shooting outside Bass Pro Shops in Mesa",
+      "source": "FOX5 Vegas",
+      "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxORU9qdk9YdnFta1RKcDR6U1YyN1o3RzJaZFlpRGV0bDlEUUZwNEVWdTUwaUVhSDdoVVhCTncxbk1XT0VpbElnN2NjZ1dLWktJcWVIYy15WndMWUVfMW5MQ193RWkxNzFxcUNJUTNjb3pBZUZmbjFTWFRIR3laZkZueXBJbkJjWjdVQ0pfclY1eUNtWXU5U2kxRFEyYlBpZTQ4ZHdTQWs4cw?oc=5",
+      "classification": "likely",
+      "reason": "Headline explicitly describes a shooting or gunfire event; incident facts not independently verified"
+    },
+    {
+      "id": "10d6a6454c9849ad0718f80eb687f828a64f6ab8f89c3766599ee596f9cd5292",
+      "title": "Cincinnati Police identify man killed in officer-involved shooting at Talbert House",
+      "source": "WKRC",
+      "url": "https://news.google.com/rss/articles/CBMimwJBVV95cUxOUEZnMmZyWGNKeXp0bWxRcmVOUHVLX3U4VjZMcjBMdnladTJJVzR0cV9pandyMmdGR3NKOTdWcGxzWUJYMzJRY1FPSUlITjZla2l0N1FhTTdEZm5nSHFSTEdPVWc5OHJOdGNuQndmTmZzVDgyRGtEaVR3aXhxbDgtR3lIMndiMWpyeVFGODdja2lpenpOR0tCU2dFbkxnZGVwdERfY3g3WEs4ejJqZEhTdTRfTGpzUHBrTW5abVdacTFVbkpwSFRvRVMzVnY3U1dGM2pYQnBSalYtYVpfWWl6X2FPd0I0ZDhwTG9QWVZjeUhyZi1wNl9uMW1rLXNKempXYmhXdUt3ZGtUSVZ1YUwyREE4TEY3QjIzZkZj?oc=5",
+      "classification": "likely",
+      "reason": "Headline explicitly describes a shooting or gunfire event; incident facts not independently verified"
+    },
+    {
+      "id": "daaba5e18fd5c072103893f321dbb9778e4207b3a1cb5d3520af5df90980355e",
+      "title": "Teen killed in Bowling Green shooting",
+      "source": "WKRN News 2",
+      "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTE9BSXZDZFlfTk51V3BQY0IwQTFDa3AzNmtheWpKRHNmUjNRYXFYdUlWM19KTEhHTkk2NWRtcTdHRGg2dUZNRVMyemo4U1JDbTNfOHdwWjh3QXMwdHYtMDhQdF9JcGFUczdXTDRwdHBBNjFGR29sOWJtTDczYjh3d9IBgwFBVV95cUxNUUZpbWljQzBGYS1Id094S1pyLWxFZlZObllNMlJQZkNOT1IzTGtfbGMzbkFrQlJad0k5czVOR1JfNlZRQnhhd3NzT1Z4dWJXRl9MVkVwZHUyQzcwTmo4c0YyeE51S3F5ZVNaVHpJMVc2UFd0d1NwZzE3Y05HdUhCdUs1cw?oc=5",
+      "classification": "likely",
+      "reason": "Headline explicitly describes a shooting or gunfire event; incident facts not independently verified"
+    },
+    {
+      "id": "825110d69720455d4f5ec86c2701280af937a38507ad4e8f9ccc400cef4b298b",
+      "title": "At least 17 dead in mass shooting at bar in South Africa, police say",
+      "source": "The Independent",
+      "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxQS3VuRzJVYWIwT0hJcHYzRkdvUUUxSEVNckxTeGJIZnZ1eWtqNk9adFZ5Z0EyOXZHRUpnMUtpX2s5aUxpQURnTXVNNFFhMWxyNHY2SVJRSFJrYVBwZUx4aUN5S0Z5c2lTVUc5M3FWSG5scGRucXVxWEZ0aTdkOHo3S2JRb3k0LTB3clVJei1CUTZ3MHlPYmlLMVhvTWFRNVJiWWZlVFNkOEY2a0lYQmFqYXFqQ2FfZllaSnhB?oc=5",
+      "classification": "excluded",
+      "reason": "Explicitly outside the United States"
+    },
+    {
+      "id": "c209f582a3406f7b6796a0b6bfc5e5ab0d60e1db2df1ec062bb67f373b2a19c3",
+      "title": "One Hurt, One in Custody in Henry County Shooting",
+      "source": "WBKO",
+      "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPVlg1eXV0VDNSWlBQbjJBeEwtdWV0bGN5a3QxdlRNaTZ3OGxGOHlRTTNoaVdBS3BUNndpbGVSR1NpNm50TnA3ZDdWV1BodjNGWndxWC1kRndpTWJFdWV0MjNTM0I1djRxLUp2Z3A5cUd3SEEzbXNDOGhYSVZQWnNMQ2lMLWtKWVBf?oc=5",
+      "classification": "likely",
+      "reason": "Headline explicitly describes a shooting or gunfire event; incident facts not independently verified"
+    },
+    {
+      "id": "bc604f2cc8ca3d91f48b92a9847679dee1bc498f47963965a60048c943766777",
+      "title": "One Hurt, One in Custody in Henry County Shooting",
+      "source": "Alaska's News Source",
+      "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxPcEFIZnB4bFAxVnprVEtyU0t1c2lJZExfZDF4OV8zLTF0V1ZpRFBWWVRLZ1B3dU9BNzRUZnRLV185OW50T3RlcmJhNTlqTHppUHVRVkxsV29KZGV3RHRxalB1YkNWTU1jWWRzTDgwdUFEVTVKRmVKc3phT1lxd0JOYmVlcmVod0dUNXNKOWNGRnc0ajFJdFdHTmhR?oc=5",
+      "classification": "likely",
+      "reason": "Headline explicitly describes a shooting or gunfire event; incident facts not independently verified"
+    },
+    {
+      "id": "13a4f085d08d31248abb7eb4b7b90a77d734b643e62907dd81c371aed98896f9",
+      "title": "One Hurt, One in Custody in Henry County Shooting",
+      "source": "azfamily.com",
+      "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxNLTRQWmFBX0tCQ0hackNqdVc4X3IzdUhfMm1ya1paV2FPTU1ZZFJGdW02b0JzMlV4eUFkTFoyQTV5V0c3VDIzT3FIMFMtSV9adE9MYUxuSUszUGlHXy1QRFl0YWM3aTI1cnQ2ZDZTaEJpandLaHhidVhlQzh6Z1NlUjJzZDFmMVhHWlhUQS13?oc=5",
+      "classification": "likely",
+      "reason": "Headline explicitly describes a shooting or gunfire event; incident facts not independently verified"
+    },
+    {
+      "id": "4e86324315f5f9be2ba0975c144bd570790304955eb6edd1ba24a32a7d6dc735",
+      "title": "One Hurt, One in Custody in Henry County Shooting",
+      "source": "WBTV",
+      "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPdFhjdENQUEdZMTMtcDV0SXZDcExSZXR3ajVoTkp4ZG5PdmVmZllwdmlwa2JYZ3F0dnkycXotN09vTEE4VmJRckFNSFFkc1ZjX2FWUms2S3N3djl3TWVlSUlsT3FuV3Z4Q2UxWjZsZEE3R1UtYmxzNTJTcHJ2MkpZQlRnVmVrQUFv?oc=5",
+      "classification": "likely",
+      "reason": "Headline explicitly describes a shooting or gunfire event; incident facts not independently verified"
+    },
+    {
+      "id": "fe586d0a164e479f1dda5146eddf9029c1c2dcf52fbe8ec6df05857ab8997f93",
+      "title": "One Hurt, One in Custody in Henry County Shooting",
+      "source": "WLBT",
+      "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNSTdSVEZfQ1ZYQS1oMi15Ny1SNlhXVzl1cFZYeVFNNUFvSGVHWUZ2SWZQejBMSUsxRmdLZHZoQVM1NURhQnB0cXVTUTZDNnlzUkVoakwzTUNfVWpFSmxCaWZKLXI1MmF6Ni1lelJwcXhZTzA3VWZIaVkwRkNNaXVHaEgtSllxcC03?oc=5",
+      "classification": "likely",
+      "reason": "Headline explicitly describes a shooting or gunfire event; incident facts not independently verified"
+    },
+    {
+      "id": "3ad3253fab310ac335ac3eb46173f92607adae390cfcd21ec20060a01a81313a",
+      "title": "One Hurt, One in Custody in Henry County Shooting",
+      "source": "wbay.com",
+      "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPalY3UDNJWUNBbWpNVTI4NHpVZ0JncnczcW56QnRpZmFKNmhwS1FOOURWZmYwNkNzcjNDUXZJelptQ3JFZDNCX1ZsYlNucmY2MUNYNVNMdXBwOWF1LUc5RjFmTkdmYmpPMEhoanlHcWl2clFtWWR6OFlWdlRPZURkLXVvbVg5SEFS?oc=5",
+      "classification": "likely",
+      "reason": "Headline explicitly describes a shooting or gunfire event; incident facts not independently verified"
+    },
+    {
+      "id": "86c2321531f5d17a0c2b86978a78b8c364336fda9eefee7d3ede660f5b4f30a6",
+      "title": "One Hurt, One in Custody in Henry County Shooting",
+      "source": "WALB",
+      "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNa19xVHdiX05yU09tdXJSNXR4MWtPdmMtcUpWclJSbmZYVXpKd3I0dWxFLWg3Ykt4eFZVenQ3MUNKN29CNjRqMFRpTGlpemVVeTh4YXJwdG1wY2dYcUFrNVVPNlVRUUpXZDU4U2J1OWVzMmktRkJiMTE0SUtxV1VTazBsSEt6b1ZQ?oc=5",
+      "classification": "likely",
+      "reason": "Headline explicitly describes a shooting or gunfire event; incident facts not independently verified"
+    },
+    {
+      "id": "56187290e265f32c4f51a48c929e6b5022c8d93e695b3eb12fcddfecf59cf2ac",
+      "title": "Attorney of man shot in ICE-involved shooting says 18th Street gang allegations are false",
+      "source": "ABC News - Breaking News, Latest News and Videos",
+      "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxOT3Rxb2ROa29mczVuRHlRT3p2Tnp0VTdNSTIyU1JCMkZBVnBEbV81akFDZlA4V3RCX0JUNGhqUG5RZ0RnT0RVQktHckN4enlpVTNUZ2psMTJDa3dDNlVYdGpUZjYxY1N3X2lod2lzWE8yMVktSnV5MGlQRGxpeUQ3Wkk0VlA3cTFxcXZrM2Q2dGJXQ1pXd0Y2Qlp30gGfAUFVX3lxTFBrSnFmVl9SeEROUlM5c3dhWlY5WjU4UmhxWkZDTERGUVFYcm1XeDBfdmFNS1FvMGF1MXJkWk9WSTZGdTF0MXpmRWdOWTRwblowcnBubEJoR0ZhT016MzRkN2tjbDZTYVY5ek90UDlIRTV5Qkx6MXlFczVZQUlycm01cG1HSXBxOXNYN0VUYmhvRmpOZ1hJa0R4VEltYktzUQ?oc=5",
+      "classification": "follow_up",
+      "reason": "Legal, retrospective, memorial or subsequent coverage"
+    },
+    {
+      "id": "f502e0fa385c0a6b0b06360f944159d12cb2676987981fa6eab476f0342fe3a5",
+      "title": "Two injured in NW Oklahoma City shooting",
+      "source": "KFOR",
+      "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTFBnYVFPMVhudjFSUS1NWTkyN2t3RG9YOVB6TkV1VmJnMXJ3Zms4NkhuZzE1ZmxXamlsTkEyQkxkSUFTSFdqc0kyRkVqS1U2SE83SkFpN2JXOFBOZnNhZWEzWk9PcjI4VVVjZVlNT0w0c25sSno4OW1WbNIBfkFVX3lxTE4wSmNtSzJGRWRtTzJ1OVRNeV9LaGY2TlhSYURPdllOTWNtT25PWG5nQlhJaW9VQUlQWjNaZmpmZEZpQzlGYlVWeW5nZ1Bzc2g1S0xPaE16dmFsMFBLY1JCN3ZPWFVWUTBPcWVZMG9DNS1zakdoblZoNVhnQXN2UQ?oc=5",
+      "classification": "likely",
+      "reason": "Headline explicitly describes a shooting or gunfire event; incident facts not independently verified"
+    },
+    {
+      "id": "aefeac48a989d8e4fcdde5e56737ee17d819b42d933d55d96ce4599a3b6f378b",
+      "title": "Fort Worth shooting leaves man dead, another charged with murder",
+      "source": "NBC 5 Dallas-Fort Worth",
+      "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxPLWM0VTVnMnJ4MUIwWDJ1aUNKS0x1NkdlMkFFbExJU19GNEM3M184UTZGeVd0NnlybGFucS1GQVlSbHhVWmdnNUhOS05LM0o4OWM3U19QNHp0NTBfVFRZS3hQUG80SGRJeDBDdDF5bHp0V0VuR3p6WnNxc2NrNnhYSlVad210OXFzbFJnNkFueTJCclJ2Y256QlB1SzhYMkFY0gGoAUFVX3lxTE4yUlBtY1lOdGkxSENYc0Z4SGhpZVl2cVVZbGF1MmVRY1lFUm1nNlp2Qkd4aVNrUVU2aGlPMUNyMjBoM20zMHkxallOZFdOUFhDMjJqdEtlNVRZaXlrcm9HY1Q1MlVYY183NnVEV2JPd2pnbVhCMnZGS2lhRmtRbkZwMGVVdTJYWF9GY2V2UDcyMklfZXpfZ2dxOGR2SEo3TEdvUm1IWEtIXw?oc=5",
+      "classification": "likely",
+      "reason": "Headline explicitly describes a shooting or gunfire event; incident facts not independently verified"
+    },
+    {
+      "id": "0eb24beda03c38bc78ca0922b0dfe769c781e9b1992e23897013292d3ed8a471",
+      "title": "Tahir Shoatz convicted of murder in 2024 West Philadelphia mass shooting",
+      "source": "6abc Philadelphia",
+      "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxONnJka3R3dnktZXZVTGVDREoxM2ZheldpdmRCVy1jTkJTXzQtZkk0OUg0bFZ4YmdaQWFzYTBIWnhVMFdxcjFpX1lwSGxnRGZ5Ni1YZlFaUWc3OHM0bkEwank5T1ZHNUpCb3pyTVVZekFXWXZoYTdONnBrY0haRi00WUtJR0Y3NXdMYy15Tkhfb3RoUExKeHFZRWxDTmRkeEXSAaQBQVVfeXFMUGdFbmd4ZGJ0S25GVXZKcXBxMzN1NU00UU9uRlhENVJyX2FOWXZ4aUpITjVrMU4zUFJlOEFOZkFoN3VWTTh2b2M2ZUR3Z2ktdDVPbW1kbVBYZkdiZ1VZT1BtdVBnZ0hCM1ZraHFtWWFoUFEtVjdTcmk5clFtYW1ZcnhZMVAxeVE3MXlQVG1mUW1kRmlucjZ3eVgyallabUJHN3dyV3k?oc=5",
+      "classification": "follow_up",
+      "reason": "Legal, retrospective, memorial or subsequent coverage"
+    },
+    {
+      "id": "71082d7b94ee0564693c50c83fabe1fa39a7b8db80107f10d8887f5c4ba2e3ac",
+      "title": "19-year-old man guilty of attempted murder for shooting in Normal that paralyzed victim",
+      "source": "WEEK | 25 News Now",
+      "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNN3hqckp4WHM3dDU0ZTB6cTRmMGRFdHlkcDQwU2U4YVY1eTZpc254T1NEWUZvemFfQkZDNXI1alBuTVR3bURtX2MzbUwzU2tXZzdwZkJYNnVkaDU0WFVkM1FzWXczeXJ3Y3A2c0hGeThsMkQ1VndFRk1VLTRhRGtJNGlDZHJWc2lWdGI3czdMNlVuMjRQLXA3aUZxYWxnVGF6WHUxQjlxZFdpMTV4QlNHUFhaUWdGQdIBygFBVV95cUxOM0ZKcC0yRjJUdjFfNGNDRTJhWGtUdU9zX2pka2ZZZDVkdjBNMVNJVlAwMEExZUg3WnBsRzFLV1J2WUhjREx4aHdfQnNoMk5Za3BCalI3OE5Vc0ZGZDBmNWJkTTN0ZElaNVJodF9DRlQycTEwSGNlS0FESF9QeUNndHl1TGNncUZ6WHZGckpBSnd6YjlTb1NtVVlMLWpVa2ZUZDVGdnlQc0h2RGIyMmpSbURhTnJpU1QzRmVYeU5ycHhKT3plemcyWWVB?oc=5",
+      "classification": "follow_up",
+      "reason": "Legal, retrospective, memorial or subsequent coverage"
+    },
+    {
+      "id": "6a23d224820d20c6658265430d6cf3e1d3db10947f6760fa4109a975896a1ec7",
+      "title": "New details in police shooting that killed man in Cape May County",
+      "source": "CBS News",
+      "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxQZ1FfbkdOazJvQWRNU2x2LS1aSUQ4UXVvV0NMQjlDZklhMTJreEs5X001cFpJWUhIaXpBaHNlVERmZ0QxRHN4NkFSYXQtWnF1TTloZmp2RTRtcGM5VFlVTHZycmZiQWRNcEN1NGIydHNmdnlldlhFZmZEM0t0bmgtakwyOWZlVkFQUzBzLVY5bzBvLWdHRnhWdTNsNlY1YnVrM1ctRWRPYm5ZemZxaXc?oc=5",
+      "classification": "follow_up",
+      "reason": "Legal, retrospective, memorial or subsequent coverage"
+    },
+    {
+      "id": "4cf62be52f57364632da4897ce769ae25a2b125330156040c9661d1e9e1d733b",
+      "title": "One Hurt, One in Custody in Henry County Shooting",
+      "source": "WTVG",
+      "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxNdlJNeE00bkQ2ZTE4THhsU3B3Z2d1Um1BUjY4MHVlQ3ZqLVNnQUVtRHpmVlB1ZlZZS21id1p2MDZXRVZEWDBja29mc3RKTzlFUnhVMmJiM0E5aUE1QmxaWEcyRjY1c0M0X0licEVxTkVHUUJFNWVDM1hIaUdLMWdBYjl1TnFuSUk5Nmc?oc=5",
+      "classification": "likely",
+      "reason": "Headline explicitly describes a shooting or gunfire event; incident facts not independently verified"
+    },
+    {
+      "id": "e6d596bdb831d9370d0a6d7935e9c4e9d784aea8888676aceb24ffa35ca41d7e",
+      "title": "5 wounded, 1 seriously, in house party shooting in Arlington",
+      "source": "WTOP News",
+      "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNY3NoQXZXVlctTWR1Szd4SkNMQ2dzUXY2MWU1czJnRWxBMG1Icl9LQklYOXdKVnpoMGdobWY3WC0tc3FuMHA0cUFLdGNlMHl2N2Z4RWpNb21tOHlRVFluZXZmT011b0RlZ3ZkYVdQNDZuWFdWdXVrQWt6dlNpRHl3YjdpVFZDaGFROXctdV8yck5GbjR6ZG1TNA?oc=5",
+      "classification": "likely",
+      "reason": "Headline explicitly describes a shooting or gunfire event; incident facts not independently verified"
+    },
+    {
+      "id": "709809fadbd986204f338fa52e1701773def1873e3635269bfc5743c1c9ab420",
+      "title": "Teen boy arrested after shooting outside Bass Pro Shops in Mesa",
+      "source": "WSMV",
+      "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxQWktPcE5wYWM2eW92WVM3RmYxNmxnMHVnTGdKYnlyMTM3YUI0Q2JQdjlDWGFlbkhHdEV1UlJqQTZ2akFIWk5Ga3R3U1hlc2JWNTlRSlZOTkJoVFlLWjJndXp4dzlOTldMNE84S3lzalpFV25ObWVmT0pBc1gtM3lUR1BORVJWNkQ0NXBWeXhxaklZb1RhenVyVWZrdjdqeVRM?oc=5",
+      "classification": "likely",
+      "reason": "Headline explicitly describes a shooting or gunfire event; incident facts not independently verified"
+    },
+    {
+      "id": "9e5b8e57f5040a2178a3b74022090b046a0a38a0873493414e618343c6d344e2",
+      "title": "One Hurt, One in Custody in Henry County Shooting",
+      "source": "WKYT",
+      "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNT2cxLVFIMUNFbXNtcnEyME1MNTBubnFGSUVnblpMUXVrYVBPTEtxcjRlZi03ZjQweFVncWdhUXMzUW5NWG9PUENWZUJWM2ZEcUdRakl2N3NKdlQ0aHRKdi1zemxMcXRlMlV0Y3ZWdHNRZzA3RTZnR1Aya1E2NjBCQlZtc21WMXl2?oc=5",
+      "classification": "likely",
+      "reason": "Headline explicitly describes a shooting or gunfire event; incident facts not independently verified"
+    },
+    {
+      "id": "d8c311678e8daf282a418087cf1c10f67b04047448504bd0dc59921252a3780f",
+      "title": "Mistress testifies in trial of \"American Idol\" contestant charged in wife's murder",
+      "source": "CBS News US",
+      "url": "https://www.cbsnews.com/news/caleb-flynn-murder-trial-wife-american-idol-mistress-testimony/",
+      "classification": "excluded",
+      "reason": "Murder trial headline does not establish firearm involvement"
+    }
+  ]
+}

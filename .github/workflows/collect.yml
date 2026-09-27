@@ -44,6 +44,8 @@ jobs:
             git -c user.name='github-actions[bot]' -c user.email='41898282+github-actions[bot]@users.noreply.github.com' commit -m 'Initialize GunWatch source tree'
             git push origin HEAD:main
           fi
+      - name: Install Groq-compatible client
+        run: pip install "openai>=2.0,<3"
       - name: Test extraction and matching
         run: python -m unittest discover -s tests -v
       - uses: actions/setup-node@v4

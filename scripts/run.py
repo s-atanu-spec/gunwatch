@@ -3,7 +3,8 @@
 import argparse,fcntl,json,os,shutil,subprocess,sys,time
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1];sys.path.insert(0,str(ROOT/'src'))
-from collector import database,collect,export
+from collector import database,collect,export,refresh_locations
+from enrichment import enrich
 
 def git(*args,cwd=ROOT):
  return subprocess.run(['git',*args],cwd=cwd,text=True,capture_output=True,check=True).stdout.strip()
@@ -45,6 +46,9 @@ def main():
    # No network access is possible before the durable claim above succeeds.
    try:
     result=collect(db,config,now);state['status']=result['status']
+    refresh_locations(db)
+    state['ai_status']=enrich(db,config,now)
+    db.execute('UPDATE runs SET message=message || ? WHERE id=(SELECT MAX(id) FROM runs)',('; AI: '+state['ai_status'],));db.commit()
     if result['status'] in ('success','partial'):state['last_success_at']=now
    except Exception as exc:
     state['status']='error';state['message']=str(exc)[:180]

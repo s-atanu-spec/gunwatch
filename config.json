@@ -26,5 +26,11 @@
     "www.npr.org"
   ],
   "user_agent": "GunWatch/3.0 (+https://github.com/s-atanu-spec/gunwatch)",
-  "overrides": []
+  "overrides": [],
+  "ai": {
+    "enabled": true,
+    "provider": "groq",
+    "model": "openai/gpt-oss-20b",
+    "max_reports_per_run": 8
+  }
 }

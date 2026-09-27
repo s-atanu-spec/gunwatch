@@ -4,7 +4,7 @@ import datetime as dt,email.utils,hashlib,html,json,re,sqlite3,time,urllib.reque
 from html.parser import HTMLParser
 from incidents import extract,group_reports
 from google_search import parse_search
-from locations import census_match,STATES
+from locations import census_match,STATES,locate
 
 class PlainText(HTMLParser):
  def __init__(self):super().__init__();self.parts=[];self.hidden=0
@@ -178,6 +178,7 @@ def collect(db,config,now,fetch=request):
      try:
       geo=census_match(loc,get_json);cache(db,key,geo,now+30*86400);row['facts']['location']=geo
      except Exception:cache(db,key,None,now+86400)
+    row['source_text']=row.get('text','')[:3000]
     row['summary'],row['summary_kind']=brief(row)
     if row.get('text_kind')=='search snippet' and row['text']:row['summary_kind']='search snippet'
     if old and previous.get('fingerprint')==row['fingerprint']:
@@ -193,7 +194,19 @@ def collect(db,config,now,fetch=request):
  message='; '.join(statuses+errors);db.execute('INSERT INTO runs(started_at,status,message,added) VALUES(?,?,?,?)',(now,status,message,added));db.execute('DELETE FROM runs WHERE id NOT IN (SELECT id FROM runs ORDER BY id DESC LIMIT 1000)');db.commit()
  return {'status':status,'message':message,'added':added}
 
+def refresh_locations(db):
+ """Reprocess old records after matcher upgrades without fetching publishers again."""
+ for stored in db.execute('SELECT id,payload FROM reports').fetchall():
+  row=json.loads(stored['payload'])
+  if row.get('location_version')==2:continue
+  old=row['facts']['location'];fresh=locate(row['title']+'. '+row.get('source_text',row.get('text','')))
+  if old.get('precision')=='address' and old.get('address')==fresh.get('address') and old.get('state')==fresh.get('state'):fresh=old
+  row['facts']['location']=fresh;row['location_version']=2
+  db.execute('UPDATE reports SET payload=? WHERE id=?',(json.dumps(row),stored['id']))
+ db.commit()
+
 def export(db,config,state,now):
+ refresh_locations(db)
  reports=[json.loads(r[0]) for r in db.execute('SELECT payload FROM reports')]
  review_path=Path(__file__).resolve().parents[1]/'NEWS_REVIEW.json'
  audit=json.loads(review_path.read_text()) if review_path.exists() else {'items':[]}
@@ -213,5 +226,5 @@ def export(db,config,state,now):
   db.executemany('INSERT INTO case_reports VALUES(?,?)',[(c['id'],r['id']) for r in c['reports']])
  db.commit()
  # Full source bodies stay in the database; the public feed contains bounded excerpts and evidence.
- public=[{k:v for k,v in r.items() if k!='text'} for r in pending if r['facts']['relevance']!='excluded']
+ public=[{k:v for k,v in r.items() if k not in ('text','source_text')} for r in pending if r['facts']['relevance']!='excluded']
  return {'version':3,'generated_at':now,'state':state,'states':STATES,'cases':cases,'review':public,'report_count':len(reports),'runs':[dict(r) for r in db.execute('SELECT * FROM runs ORDER BY id DESC LIMIT 20')],'sources':[dict(r) for r in db.execute('SELECT * FROM source_state')],'calendar':'America/New_York','excluded_count':excluded,'audit':{'date':audit.get('review_date'),'reviewed':len(audit['items'])}}

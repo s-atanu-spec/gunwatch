@@ -23,25 +23,26 @@ def normalize_street(s):
 def locate(text):
  text=text[:3000]
  loc={'state':None,'city':None,'county':None,'area':None,'street':None,'address':None,'lat':None,'lon':None,'precision':'unlocated','pin_color':None,'basis':'No defensible US location found','match_key':None}
- # Geographic tokens must appear as proper names in source text.
+ # Find complete proper-name spans. Trailing punctuation is not part of a place.
+ tokens=list(re.finditer(r"[A-Z][\w'-]*",text))
  candidates=[]
- for m in re.finditer(r"\b[A-Z][\w.'-]*(?:\s+[A-Z][\w.'-]*){0,5}",text):
-  words=m.group().split()
-  for i in range(len(words)):
-   for j in range(i+1,len(words)+1):
-    name=' '.join(words[i:j]);hits=INDEX.get(name.casefold(),[])
-    if hits:candidates.append((name,hits))
+ for i,t in enumerate(tokens):
+  for j in range(i,min(i+5,len(tokens))):
+   end=tokens[j].end();name=text[t.start():end]
+   if not re.fullmatch(r"[A-Z][\w'-]*(?:\s+[A-Z][\w'-]*)*",name):break
+   hits=INDEX.get(name.casefold(),[])
+   if hits:candidates.append((t.start(),end,name,hits))
+ # Prefer full names, never North (SC) inside North Philadelphia or Cape May city inside its county.
+ candidates=[c for c in candidates if not any(d[0]<=c[0] and d[1]>=c[1] and (d[0],d[1])!=(c[0],c[1]) for d in candidates)]
+ candidates=[c for c in candidates if c[2] not in ('North','South','East','West','Lamb') and not re.match(r'\s+(?:'+STREET_SUFFIX+r'|County|Speedway|Sports Grounds?|Bridge)\b',text[c[1]:])]
  explicit=[]
- for name,hits in candidates:
+ for start,end,name,hits in candidates:
   for p in hits:
-   state=p['state'];pattern=r'\b'+re.escape(name)+r'\s*,\s*(?:'+re.escape(STATES[state])+'|'+state+r')\b'
-   if re.search(pattern,text):explicit.append((name,p))
- # Only explicit state/city pairs can disambiguate a repeated place name.
+   state=p['state'];pattern=r'^\s*,\s*(?:'+re.escape(STATES[state])+'|'+state+r')\b'
+   if re.search(pattern,text[end:]):explicit.append((name,p))
  chosen=[]
  if explicit:
-  longest=max(len(n) for n,p in explicit)
-  # Drop suffix matches such as York within New York, but preserve independent places.
-  chosen=[p for n,p in explicit if not any(n!=n2 and n2.endswith(' '+n) and p['state']==p2['state'] for n2,p2 in explicit)]
+  chosen=[p for name,p in explicit]
  else:
   states=set()
   for code,name in STATES.items():
@@ -50,11 +51,21 @@ def locate(text):
    if code in ('GA','WA','NY') and re.search(r'\b'+name+r' state\b',text,re.I):states.add(code)
   if len(states)>1:loc['basis']='Multiple states mentioned; review required';return loc
   state=next(iter(states),None)
-  for name,hits in candidates:
+  ambiguous=[]
+  for start,end,name,hits in candidates:
    valid=[p for p in hits if not state or p['state']==state]
-   # Require a locative phrase or clear city/county pairing, not incidental person names.
-   if re.search(r'\b(?:in|near|outside|across|of)\s+'+re.escape(name)+r'\b',text):
+   before=text[max(0,start-55):start];after=text[end:end+55]
+   context=bool(re.search(r'\b(?:in|near|outside|across|of|at)\s+(?:(?:downtown|north|south|east|west|northeast|northwest|southeast|southwest)\s+)?$',before,re.I) or re.match(r"(?:['’]s)?\s+(?:police|shooting|gunfire)\b",after,re.I) or (start==0 and re.match(r'\s*:',after)))
+   if name=='Treasure Island' and re.search(r'\bBay Bridge\b',text):context=False
+   if context:
     if len(valid)==1:chosen+=valid
+    elif valid:ambiguous+=valid
+  # Do not resolve a short unique name while an independent ambiguous scene is also present.
+  if ambiguous:
+   loc['candidates']=[{'name':p['name'],'state':p['state'],'level':p['level']} for p in ambiguous][:30]
+   loc['basis']='Place named in source, but several US matches; state or local context needed'
+   if not chosen and len({p['state'] for p in ambiguous})==1:
+    state=ambiguous[0]['state']
   if state:loc.update(state=state,lat=CENTERS[state]['lat'],lon=CENTERS[state]['lon'],precision='state',pin_color='yellow',basis='State center; approximate location')
  unique={(p['state'],p['name'],p['lat'],p['lon']):p for p in chosen}
  if len(unique)>1:

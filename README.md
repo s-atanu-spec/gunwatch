@@ -2,7 +2,7 @@
 
 A lightweight US gun-violence news tracker with source-linked summaries, incident grouping, location confidence and case-based analytics. Built with Python, SQLite and plain JavaScript, with Codex assistance.
 
-**The whole deployment runs on GitHub:** Actions collects and processes news; a dedicated `collector-state` branch persists the SQLite database and cooldown; Pages serves the dashboard. No PHP host, browser automation, paid map service or AI API key is needed.
+**The whole deployment runs on GitHub:** Actions collects and processes news; a dedicated `collector-state` branch persists the SQLite database and cooldown; Pages serves the dashboard. No PHP host, browser automation or paid map service is needed. Optional AI extraction uses a server-side Groq API key.
 
 ## What the numbers mean
 
@@ -29,15 +29,15 @@ The month-to-date chart uses incident dates; publication times never become inci
 - **Yellow pins:** an approximate city, county or state center. The location evidence explains the precision.
 - No defensible geographic area means no pin. Ambiguous street names or multiple locations are not resolved arbitrarily.
 
-The current-day map uses incident dates from counted cases. Unresolved reports remain in the feed even when they cannot be placed on that map. See [Census API documentation](https://geocoding.geo.census.gov/geocoder/Geocoding_Services_API.html).
+The default news map shows report locations using the selected publication window, independently of case linkage. Pin groups show story counts, not incident counts. A separate mode shows counted cases using today’s incident date. See [Census API documentation](https://geocoding.geo.census.gov/geocoder/Geocoding_Services_API.html).
 
 ## Summaries and sources
 
 The default sources are Google News US search, CBS News US and NPR National RSS. Source coverage and availability vary; a US feed edition does not guarantee that every returned report is domestic. Cases require a matched US location.
 
-RSS descriptions supply short, extractive summaries. For supported publisher URLs, the collector can read structured article text when robots.txt permits it. This is bounded to five new or changed articles per run, with no redirects, retries, login or paywall bypass. Only short excerpts and extraction evidence are retained; full article bodies are not stored or published. Aggregator link lists are not presented as summaries. When no usable text is available, the card clearly says **headline only**.
+RSS descriptions supply short, extractive summaries. For supported publisher URLs, the collector can read structured article text when robots.txt permits it. This is bounded to five new or changed articles per run, with no redirects, retries, login or paywall bypass. Only short excerpts and extraction evidence are retained; bounded source excerpts of up to 3,000 characters are retained for extraction; full article bodies are not published. Aggregator link lists are not presented as summaries. When no usable text is available, the card clearly says **headline only**.
 
-No language model or borrowed API key is used. This avoids free-tier quotas and hallucinated locations or casualty figures. Source availability can still prevent a complete summary or incident match.
+Optional AI extraction uses Groq-hosted `openai/gpt-oss-20b`. Source quotes and Census names must pass validation before use. Missing state evidence, ambiguous places and unsupported summaries are rejected.
 
 ## Collection and persistence
 
@@ -64,7 +64,7 @@ The SQLite database lives in a public data branch, so it must contain only publi
 3. Enable Actions and run **Collect and publish**.
 4. Open the Pages URL shown by the successful deployment.
 
-No external secret or API key is required. The job uses the repository-scoped, temporary GitHub Actions token to update its data branch and deploy Pages. Branch rules or account restrictions can require an owner setting change. All source errors are visible in the dashboard log even when the site itself deploys successfully.
+Core collection works without an API key. AI extraction needs the optional `GROQ_API_KEY` repository Actions secret. The job uses the repository-scoped, temporary GitHub Actions token to update its data branch and deploy Pages. Branch rules or account restrictions can require an owner setting change. All source errors are visible in the dashboard log even when the site itself deploys successfully.
 
 ## Run locally
 
@@ -128,3 +128,13 @@ RSS sources remain enabled. A fourth source makes one direct HTTPS request to th
 The HTML parser accepts recognizable headline cards, publisher links and available snippets. Search snippets are labelled separately from publisher excerpts. Unsupported markup, JavaScript-only pages, consent screens and challenges are logged as errors, never an empty successful feed. There is no Selenium, page execution, pagination, retry, proxy rotation or challenge bypass. The shared durable 30-minute reservation applies to every source; 403/429/503 and challenge responses trigger backoff. RSS results continue when direct search fails. Missing search publication dates remain unknown.
 
 Redirect errors report only the destination host and a recognized route (such as `/sorry/`); query strings and arbitrary paths are omitted. Redirects are not followed. The last-hour search window filters search results, not the dashboard archive or the actual incident date. RSS retains its existing coverage window.
+
+## AI setup and location confidence
+
+Optional provider: Groq, model: `openai/gpt-oss-20b` (Apache 2.0 model license). The provider has separate account terms and quotas. Create an account at https://console.groq.com and store the key only in the repository Actions secret `GROQ_API_KEY`. Never put it in config.json, Pages, logs or the state branch. Missing credentials are logged as `waiting for GROQ_API_KEY`; RSS and offline location matching continue.
+
+At most eight uncached records are processed per eligible collection; identical inputs are cached across sources. Any provider or validation failure stops AI for the run with a one-hour backoff and no automatic retries. Only the public headline and available bounded source excerpt are sent. Summary sentences must occur verbatim in the excerpt. Place evidence must occur in the source; ambiguous place names need explicit source state evidence. Coordinates come from Census, never the model. This reduces invented facts but does not independently verify the incident.
+
+AI cannot fetch inaccessible articles or invent missing details. Headline-only records remain labelled. A city can be mapped approximately even when event time or casualties are unknown. Existing records are reprocessed without new publisher requests.
+
+Documentation: https://console.groq.com/docs/model/openai/gpt-oss-20b and https://console.groq.com/docs/structured-outputs . Model license: https://github.com/openai/gpt-oss/blob/main/LICENSE .

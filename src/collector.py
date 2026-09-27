@@ -213,9 +213,11 @@ def export(db,config,state,now):
  review_path=Path(__file__).resolve().parents[1]/'NEWS_REVIEW.json'
  audit=json.loads(review_path.read_text()) if review_path.exists() else {'items':[]}
  decisions={item['id']:item for item in audit['items']}
- from incidents import classify
+ from incidents import classify,casualties
  for r in reports:
   r['facts']['relevance']=classify(r['title'],r.get('text',''))
+  r['facts']['casualties'],count_evidence=casualties(r['title']+'. '+r.get('source_text',r.get('text',''))[:3000])
+  r['facts']['evidence']=list(dict.fromkeys(r['facts'].get('evidence',[])+count_evidence))
   from summaries import format_summary
   r['summary']=format_summary(r);r['summary_kind']='Structured source brief' if r.get('source_text',r.get('text','')) else 'Structured headline brief'
   decision=decisions.get(r['id'])
@@ -230,5 +232,5 @@ def export(db,config,state,now):
   db.executemany('INSERT INTO case_reports VALUES(?,?)',[(c['id'],r['id']) for r in c['reports']])
  db.commit()
  # Full source bodies stay in the database; the public feed contains bounded excerpts and evidence.
- public=[{k:v for k,v in r.items() if k not in ('text','source_text','ai','ai_details')} for r in pending if r['facts']['relevance']!='excluded']
+ public=[{k:v for k,v in r.items() if k not in ('text','source_text','ai','ai_details','reviewed_details')} for r in pending if r['facts']['relevance']!='excluded']
  return {'version':3,'generated_at':now,'state':{k:v for k,v in state.items() if k in ('status','last_success_at','last_attempt_at','next_allowed_at')},'states':STATES,'cases':cases,'review':public,'report_count':len(reports),'runs':[{**dict(r),'message':r['message'].split('; AI:')[0]} for r in db.execute("SELECT * FROM runs WHERE status != 'enrichment' ORDER BY id DESC LIMIT 20")],'sources':[dict(r) for r in db.execute('SELECT * FROM source_state')],'calendar':'America/New_York','excluded_count':excluded,'audit':{'date':audit.get('review_date'),'reviewed':len(audit['items'])}}

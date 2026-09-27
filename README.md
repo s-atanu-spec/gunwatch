@@ -6,7 +6,7 @@ A lightweight US gun-violence news tracker with source-linked summaries, inciden
 
 ## What the numbers mean
 
-The primary analytics count **tracked cases**, not articles. Multiple matching reports attach to one case, retaining all source links. Reports without enough evidence to identify or safely compare an incident remain in **Unresolved reports**, outside the case count. Consequently these are conservative, incomplete news-derived counts, not comprehensive or independently verified official statistics.
+The primary analytics count distinct news stories; strict incident groups are retained separately. Multiple matching reports attach to one case, retaining all source links. Reports without enough evidence to identify or safely compare an incident remain in **Unresolved reports**, outside the case count. Consequently these are conservative, incomplete news-derived counts, not comprehensive or independently verified official statistics.
 
 Automatic duplicate matching requires:
 
@@ -17,7 +17,7 @@ Automatic duplicate matching requires:
 
 All members of a group must match each other, preventing a chain of overlapping time windows from merging unrelated incidents. Different casualty figures, ambiguous matches and missing inputs are not automatically merged. Evolving casualty counts can therefore create separate candidate cases until reviewed. Matching uses source text and rules, not identity guesses from a language model.
 
-The month-to-date chart uses incident dates; publication times never become incident times. The dashboard's reporting calendar is America/New_York. Explicit local times remain as written in the source. Relative dates such as Friday are anchored to publication in that calendar, which can be uncertain around midnight for western states. The evidence is visible for review.
+The daily coverage chart uses publication dates and measures news coverage; publication times never become incident times. The dashboard's reporting calendar is America/New_York. Explicit local times remain as written in the source. Relative dates such as Friday are anchored to publication in that calendar, which can be uncertain around midnight for western states. The evidence is visible for review.
 
 ## Location finder
 
@@ -68,7 +68,7 @@ Core collection works without an API key. AI extraction needs the optional `GROQ
 
 ## Run locally
 
-Python 3.12+ on Linux/macOS, using only the standard library:
+Python 3.12+ on Linux/macOS, with the OpenAI Python client required only for optional Groq extraction:
 
 ```sh
 python scripts/run.py --build-only

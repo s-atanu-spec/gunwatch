@@ -5,7 +5,8 @@ TIME=re.compile(r'\b(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday|
 
 def format_summary(row):
  f=row['facts'];l=f['location'];counts=f['casualties'];text=row['title']+'. '+row.get('source_text',row.get('text',''))
- if row.get('ai_details',{}).get('time_reference'):when=row['ai_details']['time_reference']
+ details=row.get('reviewed_details') or row.get('ai_details',{})
+ if details.get('time_reference'):when=details['time_reference']
  else:when=', '.join(dict.fromkeys(m.group(0) for m in TIME.finditer(text[:3000])))
  fragments=[]
  for key,verb in [('killed','killed'),('injured','injured')]:
@@ -16,7 +17,7 @@ def format_summary(row):
  statement=' and '.join([fragments[0]]+[v[0].lower()+v[1:] for v in fragments[1:]])+' in a gun violence incident' if fragments else 'A gun violence incident was reported'
  if when:statement+=' ('+when+'; as stated by the source)'
  parts=[]
- for value in [l.get('address') or l.get('street'),l.get('area'),l.get('city') or l.get('named_place'),l.get('county')]:
+ for value in [l.get('address') or l.get('street') or row.get('ai_details',{}).get('street'),l.get('area') or row.get('ai_details',{}).get('area'),l.get('city') or l.get('named_place'),l.get('county')]:
   if value and value.casefold() not in [p.casefold() for p in parts]:parts.append(value)
  if parts:statement+=' in '+', '.join(parts)
  if l.get('state'):statement+=' in '+STATES.get(l['state'],l['state'])
@@ -27,7 +28,7 @@ def format_summary(row):
   prefix=f"According to a report from {row.get('source','the source')} published on {stamp}, " if stamp else f"According to {row.get('source','the source')} (publication time unavailable), "
   statement=prefix+statement[0].lower()+statement[1:]
  statement+='.'
- updates=row.get('ai_details',{}).get('updates',[])
+ updates=details.get('updates',[])
  if updates:statement+='\nReported update: '+' '.join(updates)
  if not row.get('source_text',row.get('text','')):statement+='\nHeadline only; article text is unavailable. Missing incident details have not been inferred.'
  return statement

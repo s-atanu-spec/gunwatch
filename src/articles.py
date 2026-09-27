@@ -138,7 +138,10 @@ def apply_supplements(db):
  bytitle={x['title']:x for x in entries}
  for stored in db.execute('SELECT id,payload FROM reports').fetchall():
   row=json.loads(stored['payload']);entry=bytitle.get(row['title'])
-  if not entry or row.get('source_supplement'):continue
+  if not entry:continue
+  row['reviewed_details']={'time_reference':entry['time_reference'],'updates':entry['updates']}
+  if row.get('source_supplement'):
+   db.execute('UPDATE reports SET payload=? WHERE id=?',(json.dumps(row),stored['id']));continue
   row.update(source_text=entry['text'],source_supplement=entry['provenance'],article_status=entry['provenance'],url=entry['url'])
   row['facts']=extract({**row,'text':entry['text']})
   loc=locate('Shooting in '+entry['city']+', '+entry['state'])
@@ -152,6 +155,7 @@ def discover_publisher(row,config,db,now,fetch):
  """Find matching article on the publisher's own homepage/RSS. No Google decoding service."""
  homes={'wkyc':'https://www.wkyc.com','fox4kc.com':'https://fox4kc.com','fox4':'https://fox4kc.com'}
  home=row.get('source_home') or homes.get(row.get('source','').casefold())
+ if not home and re.fullmatch(r'[a-z0-9.-]+\.(?:com|org|net)',row.get('source','').casefold()):home='https://'+row['source'].casefold()
  if not home:return None
  key='publisher-discovery:'+home
  cached=db.execute('SELECT payload FROM cache WHERE key=? AND expires>?',(key,now)).fetchone()

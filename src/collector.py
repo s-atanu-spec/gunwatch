@@ -59,6 +59,17 @@ def request(url,user_agent,limit=2_000_000):
  if len(body)>limit:raise ValueError('Response too large')
  return status,{k.lower():v for k,v in headers.items()},body
 
+def redirect_note(url,headers):
+ """Expose only redirect host and known route; never tokens, queries or arbitrary paths."""
+ location=headers.get('location')
+ if not location:return ''
+ try:
+  target=urllib.parse.urlsplit(urllib.parse.urljoin(url,location));host=target.hostname or ''
+  if target.scheme not in ('http','https') or not re.fullmatch(r'[a-zA-Z0-9.-]+',host):return '; redirect destination invalid'
+  route='/sorry/' if target.path.startswith('/sorry') else '/search' if target.path=='/search' else '/[path omitted]'
+  return '; redirect to '+host+route
+ except ValueError:return '; redirect destination invalid'
+
 def database(path):
  path.parent.mkdir(parents=True,exist_ok=True);db=sqlite3.connect(path);db.row_factory=sqlite3.Row
  db.executescript('''PRAGMA busy_timeout=5000;
@@ -135,7 +146,7 @@ def collect(db,config,now,fetch=request):
     except ValueError:
      try:until=max(until,int(email.utils.parsedate_to_datetime(ra).timestamp()))
      except (ValueError,TypeError):pass
-    db.execute('UPDATE source_state SET next_allowed_at=?,last_status=? WHERE url=?',(until,f'HTTP {code}',src['url']));db.commit();raise ValueError(f'HTTP {code}; no retries')
+    db.execute('UPDATE source_state SET next_allowed_at=?,last_status=? WHERE url=?',(until,f'HTTP {code}',src['url']));db.commit();raise ValueError(f'HTTP {code}'+(redirect_note(src['url'],headers) if 300<=code<400 else '')+'; no retries')
    if re.search(br'unusual traffic|g-recaptcha|before you continue to google|verify you are human|consent.google.com',body,re.I):
     db.execute('UPDATE source_state SET next_allowed_at=? WHERE url=?',(now+3600,src['url']));db.commit();raise ValueError('Source challenge; no bypass')
    rows=parse_search(body,src['name'],now,canonical) if src.get('type')=='google_search' else parse_feed(body,src['name'],now);saved=0

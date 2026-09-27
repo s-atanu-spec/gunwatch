@@ -2,7 +2,7 @@ import sys,unittest,tempfile,json
 from pathlib import Path
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'src'))
 from google_search import parse_search
-from collector import canonical,collect,database
+from collector import canonical,collect,database,redirect_note
 class GoogleSearch(unittest.TestCase):
  def parse(self,html):return parse_search(html.encode(),'Google direct',1000,canonical)
  def test_modern(self):
@@ -28,3 +28,8 @@ class GoogleSearch(unittest.TestCase):
     return 200,{},b'<rss><channel><item><title>Police investigate shooting</title><link>https://local.com/story</link></item></channel></rss>'
    result=collect(db,cfg,1000,fetch);self.assertEqual(result['status'],'partial');self.assertEqual(len(calls),2);self.assertEqual(db.execute('select count(*) from reports').fetchone()[0],1)
    collect(db,cfg,1001,fetch);self.assertEqual(len(calls),2);self.assertGreaterEqual(db.execute('select next_allowed_at from source_state where url like "%google%"').fetchone()[0],4600)
+
+ def test_redirect_diagnostic_redacts_tokens(self):
+  self.assertEqual(redirect_note('https://www.google.com/search',{'location':'https://www.google.com/sorry/index?secret=hidden'}),'; redirect to www.google.com/sorry/')
+  self.assertNotIn('secret',redirect_note('https://www.google.com/search',{'location':'https://consent.google.com/secret?token=hidden'}))
+  self.assertEqual(redirect_note('https://www.google.com/search',{'location':'/search?q=hidden'}),'; redirect to www.google.com/search')

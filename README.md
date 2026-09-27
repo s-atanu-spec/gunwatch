@@ -123,6 +123,8 @@ See [REVIEW.md](REVIEW.md) and [NEWS_REVIEW.json](NEWS_REVIEW.json) for the init
 
 ## Direct Google News search
 
-RSS sources remain enabled. A fourth source makes one direct HTTPS request to the user-supplied Google search query (`tbm=nws`, English, US region, date sorting). Tracking/session/display parameters are removed; search terms and functional filters are preserved. The broad phrases “developing story” and “deputies say” can match unrelated news, so the same gun-event relevance filter applies after parsing. Region settings do not prove incident geography.
+RSS sources remain enabled. A fourth source makes one direct HTTPS request to the user-supplied Google search query (`tbm=nws`, English, US region, date sorting, `qdr:h1` last-hour window). Tracking/session/display parameters are removed; search terms and functional filters are preserved. The broad phrases “developing story” and “deputies say” can match unrelated news, so the same gun-event relevance filter applies after parsing. Region settings do not prove incident geography.
 
 The HTML parser accepts recognizable headline cards, publisher links and available snippets. Search snippets are labelled separately from publisher excerpts. Unsupported markup, JavaScript-only pages, consent screens and challenges are logged as errors, never an empty successful feed. There is no Selenium, page execution, pagination, retry, proxy rotation or challenge bypass. The shared durable 30-minute reservation applies to every source; 403/429/503 and challenge responses trigger backoff. RSS results continue when direct search fails. Missing search publication dates remain unknown.
+
+Redirect errors report only the destination host and a recognized route (such as `/sorry/`); query strings and arbitrary paths are omitted. Redirects are not followed. The last-hour search window filters search results, not the dashboard archive or the actual incident date. RSS retains its existing coverage window.

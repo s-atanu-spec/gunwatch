@@ -3,6 +3,11 @@ on:
   schedule:
     - cron: '17,47 * * * *'
   workflow_dispatch:
+    inputs:
+      enrich_only:
+        description: 'Enrich stored reports without scraping news feeds'
+        type: boolean
+        default: false
   push:
     branches: [main]
 permissions:
@@ -50,7 +55,16 @@ jobs:
       - name: Collect, persist and build
         env:
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
-        run: python scripts/run.py --github --state-dir .state
+          ENRICH_ONLY: ${{ inputs.enrich_only }}
+          EVENT_NAME: ${{ github.event_name }}
+        run: |
+          if [ "$ENRICH_ONLY" = "true" ]; then
+            python scripts/run.py --github --state-dir .state --enrich-only
+          elif [ "$EVENT_NAME" = "push" ]; then
+            python scripts/run.py --github --state-dir .state --build-only
+          else
+            python scripts/run.py --github --state-dir .state
+          fi
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
@@ -68,4 +82,5 @@ jobs:
       - name: Deploy dashboard
         id: deployment
         uses: actions/deploy-pages@v4
+
 

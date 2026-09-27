@@ -1,7 +1,7 @@
 name: Collect and publish
 on:
   schedule:
-    - cron: '17,47 * * * *'
+    - cron: '14,44 * * * *'
   workflow_dispatch:
     inputs:
       enrich_only:

@@ -11,6 +11,11 @@
     {
       "name": "NPR National",
       "url": "https://feeds.npr.org/1003/rss.xml"
+    },
+    {
+      "name": "Google News direct search",
+      "type": "google_search",
+      "url": "https://www.google.com/search?q=%28%22shooting%22+OR+%22shots+fired%22+OR+%22active+shooter%22+OR+%22medic+say%22+OR+%22deputies+say%22+OR+%22developing+story%22+OR+%22gunfire%22+OR+%22gun+violence%22+OR+%22person+shot%22+OR+%22man+shot%22+OR+%22woman+shot%22+OR+%22multiple+people+shot%22+OR+%22fatal+shooting%22+OR+%22injured+in+shooting%22+OR+%22killed+in+shooting%22+OR+%22critical+condition+shooting%22+OR+%22police+investigating+shooting%22+OR+%22officer-involved+shooting%22%29+site%3A.com&lr=lang_en&cr=countryUS&tbs=lr%3Alang_1en%2Cctr%3AcountryUS%2Csbd%3A1&tbm=nws"
     }
   ],
   "interval_seconds": 1800,

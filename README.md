@@ -120,3 +120,9 @@ News belongs to its publishers. Geographic and library notices are in THIRD_PART
 The default feed is a bounded, scrollable news desk with headline, source excerpt (or explicitly labelled headline-only brief), and source links. Identical headlines on the same publication day are grouped for reading only; incident matching remains separate. The map sidebar summarizes report coverage, publishers and location confidence without turning publication dates into incident dates.
 
 See [REVIEW.md](REVIEW.md) and [NEWS_REVIEW.json](NEWS_REVIEW.json) for the initial 99-record relevance review. The Google News query now uses explicit gun-event phrases and exclusions. US edition settings alone do not prove US incident geography; unknown locations stay unresolved. Filters cannot guarantee exhaustive or error-free coverage.
+
+## Direct Google News search
+
+RSS sources remain enabled. A fourth source makes one direct HTTPS request to the user-supplied Google search query (`tbm=nws`, English, US region, date sorting). Tracking/session/display parameters are removed; search terms and functional filters are preserved. The broad phrases “developing story” and “deputies say” can match unrelated news, so the same gun-event relevance filter applies after parsing. Region settings do not prove incident geography.
+
+The HTML parser accepts recognizable headline cards, publisher links and available snippets. Search snippets are labelled separately from publisher excerpts. Unsupported markup, JavaScript-only pages, consent screens and challenges are logged as errors, never an empty successful feed. There is no Selenium, page execution, pagination, retry, proxy rotation or challenge bypass. The shared durable 30-minute reservation applies to every source; 403/429/503 and challenge responses trigger backoff. RSS results continue when direct search fails. Missing search publication dates remain unknown.

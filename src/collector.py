@@ -3,6 +3,7 @@ from pathlib import Path
 import datetime as dt,email.utils,hashlib,html,json,re,sqlite3,time,urllib.request,urllib.error,urllib.parse,urllib.robotparser,xml.etree.ElementTree as ET
 from html.parser import HTMLParser
 from incidents import extract,group_reports
+from google_search import parse_search
 from locations import census_match,STATES
 
 class PlainText(HTMLParser):
@@ -135,9 +136,9 @@ def collect(db,config,now,fetch=request):
      try:until=max(until,int(email.utils.parsedate_to_datetime(ra).timestamp()))
      except (ValueError,TypeError):pass
     db.execute('UPDATE source_state SET next_allowed_at=?,last_status=? WHERE url=?',(until,f'HTTP {code}',src['url']));db.commit();raise ValueError(f'HTTP {code}; no retries')
-   if re.search(br'unusual traffic|g-recaptcha|before you continue to google',body,re.I):
+   if re.search(br'unusual traffic|g-recaptcha|before you continue to google|verify you are human|consent.google.com',body,re.I):
     db.execute('UPDATE source_state SET next_allowed_at=? WHERE url=?',(now+3600,src['url']));db.commit();raise ValueError('Source challenge; no bypass')
-   rows=parse_feed(body,src['name'],now);saved=0
+   rows=parse_search(body,src['name'],now,canonical) if src.get('type')=='google_search' else parse_feed(body,src['name'],now);saved=0
    for row in rows:
     old=db.execute('SELECT payload,first_seen_at FROM reports WHERE id=?',(row['id'],)).fetchone()
     row['fingerprint']=hashlib.sha256((row['title']+row['text']+str(row['published_at'])).encode()).hexdigest()
@@ -167,15 +168,16 @@ def collect(db,config,now,fetch=request):
       geo=census_match(loc,get_json);cache(db,key,geo,now+30*86400);row['facts']['location']=geo
      except Exception:cache(db,key,None,now+86400)
     row['summary'],row['summary_kind']=brief(row)
+    if row.get('text_kind')=='search snippet' and row['text']:row['summary_kind']='search snippet'
     if old and previous.get('fingerprint')==row['fingerprint']:
      row['facts']=previous['facts'];row['summary']=previous['summary'];row['summary_kind']=previous['summary_kind']
-    row['text']=row['summary'] if row['summary_kind']=='source excerpt' else ''
+    row['text']=row['summary'] if row['summary_kind'] in ('source excerpt','search snippet') else ''
     if not old:added+=1
     db.execute('INSERT INTO reports VALUES(?,?,?,?,?) ON CONFLICT(id) DO UPDATE SET last_seen_at=excluded.last_seen_at,payload=excluded.payload',(row['id'],row['url'],row['first_seen_at'],now,json.dumps(row)))
     saved+=1
    db.execute('UPDATE source_state SET last_status=? WHERE url=?',(f'OK, {saved} relevant records',src['url']));db.commit();successful_sources+=1;statuses.append(src['name']+f': {saved} saved')
   except Exception as exc:
-   db.commit();errors.append(src['name']+': '+str(exc)[:180])
+   db.execute('UPDATE source_state SET last_status=? WHERE url=?',('Error: '+str(exc)[:180],src['url']));db.commit();errors.append(src['name']+': '+str(exc)[:180])
  status='partial' if errors and successful_sources else 'error' if errors else 'success' if successful_sources else 'cooldown'
  message='; '.join(statuses+errors);db.execute('INSERT INTO runs(started_at,status,message,added) VALUES(?,?,?,?)',(now,status,message,added));db.execute('DELETE FROM runs WHERE id NOT IN (SELECT id FROM runs ORDER BY id DESC LIMIT 1000)');db.commit()
  return {'status':status,'message':message,'added':added}

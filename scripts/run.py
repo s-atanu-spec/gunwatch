@@ -13,7 +13,7 @@ def checkout_state(folder):
   git('fetch','origin','collector-state');git('worktree','add','--detach',str(folder),'FETCH_HEAD')
  else:
   git('worktree','add','--detach',str(folder),'HEAD');git('checkout','--orphan','collector-state',cwd=folder)
-  git('rm','-r','--ignore-unmatch','.',cwd=folder)
+  git('rm','-rf','--ignore-unmatch','.',cwd=folder)
  return bool(refs)
 def persist(folder,message):
  git('add','state.json','gunwatch.sqlite',cwd=folder) if (folder/'gunwatch.sqlite').exists() else git('add','state.json',cwd=folder)

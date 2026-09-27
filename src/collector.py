@@ -178,7 +178,7 @@ def collect(db,config,now,fetch=request):
      try:
       geo=census_match(loc,get_json);cache(db,key,geo,now+30*86400);row['facts']['location']=geo
      except Exception:cache(db,key,None,now+86400)
-    row['source_text']=row.get('text','')[:3000]
+    row['source_text']=row.get('text','')[:7000]
     row['summary'],row['summary_kind']=brief(row)
     if row.get('text_kind')=='search snippet' and row['text']:row['summary_kind']='search snippet'
     if old and previous.get('fingerprint')==row['fingerprint']:
@@ -198,10 +198,10 @@ def refresh_locations(db):
  """Reprocess old records after matcher upgrades without fetching publishers again."""
  for stored in db.execute('SELECT id,payload FROM reports').fetchall():
   row=json.loads(stored['payload'])
-  if row.get('location_version')==2:continue
+  if row.get('location_version')==3:continue
   old=row['facts']['location'];fresh=locate(row['title']+'. '+row.get('source_text',row.get('text','')))
   if old.get('precision')=='address' and old.get('address')==fresh.get('address') and old.get('state')==fresh.get('state'):fresh=old
-  row['facts']['location']=fresh;row['location_version']=2
+  row['facts']['location']=fresh;row['location_version']=3
   db.execute('UPDATE reports SET payload=? WHERE id=?',(json.dumps(row),stored['id']))
  db.commit()
 
@@ -214,6 +214,8 @@ def export(db,config,state,now):
  from incidents import classify
  for r in reports:
   r['facts']['relevance']=classify(r['title'],r.get('text',''))
+  from summaries import format_summary
+  r['summary']=format_summary(r);r['summary_kind']='Structured source brief' if r.get('source_text',r.get('text','')) else 'Structured headline brief'
   decision=decisions.get(r['id'])
   if decision and decision['title']==r['title']:
    r['facts']['relevance']=decision['classification'];r['review_reason']=decision['reason'];r['relevance_reviewed']=True

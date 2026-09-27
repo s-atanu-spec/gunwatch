@@ -5,6 +5,8 @@ from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1];sys.path.insert(0,str(ROOT/'src'))
 from collector import database,collect,export,refresh_locations
 from enrichment import enrich
+from articles import hydrate,geocode_stored
+from collector import request
 
 def git(*args,cwd=ROOT):
  return subprocess.run(['git',*args],cwd=cwd,text=True,capture_output=True,check=True).stdout.strip()
@@ -28,7 +30,7 @@ def build(db,config,state,now,out):
  shutil.copytree(ROOT/'site',out,dirs_exist_ok=True);(out/'data').mkdir(exist_ok=True)
  write_json(out/'data/latest.json',export(db,config,state,now));(out/'.nojekyll').touch()
 def main():
- p=argparse.ArgumentParser();p.add_argument('--github',action='store_true');p.add_argument('--build-only',action='store_true');p.add_argument('--state-dir',type=Path,default=ROOT/'work');p.add_argument('--output',type=Path,default=ROOT/'output');args=p.parse_args()
+ p=argparse.ArgumentParser();p.add_argument('--github',action='store_true');mode=p.add_mutually_exclusive_group();mode.add_argument('--build-only',action='store_true');mode.add_argument('--enrich-only',action='store_true');p.add_argument('--state-dir',type=Path,default=ROOT/'work');p.add_argument('--output',type=Path,default=ROOT/'output');args=p.parse_args()
  config=json.loads((ROOT/'config.json').read_text());folder=args.state_dir.resolve();existing=False
  if args.github:existing=checkout_state(folder)
  folder.mkdir(parents=True,exist_ok=True)
@@ -39,7 +41,13 @@ def main():
   state=json.loads(statefile.read_text()) if statefile.exists() else {'next_allowed_at':0,'last_attempt_at':None,'last_success_at':None,'status':'awaiting first collection'}
   if existing and state.get('last_success_at') and not dbfile.exists():raise RuntimeError('Persistent database missing; refusing to reset history')
   db=database(dbfile);now=int(time.time())
-  if not args.build_only and now>=state['next_allowed_at']:
+  if args.enrich_only and now>=state.get('next_enrichment_at',0):
+   state['next_enrichment_at']=now+1800;write_json(statefile,state)
+   if args.github:persist(folder,'Reserve stored-report enrichment')
+   refresh_locations(db);state['article_status']=hydrate(db,config,now,request);state['ai_status']=enrich(db,config,now)
+   geocode_stored(db,config,now,request)
+   db.execute('INSERT INTO runs(started_at,status,message,added) VALUES(?,?,?,?)',(now,'enrichment',state['article_status']+'; AI: '+state['ai_status'],0));db.commit()
+  elif not args.enrich_only and not args.build_only and now>=state['next_allowed_at']:
    state.update(next_allowed_at=now+max(1800,config['interval_seconds']),last_attempt_at=now,status='running')
    write_json(statefile,state);db.commit()
    if args.github:persist(folder,'Reserve collection cooldown')
@@ -47,7 +55,9 @@ def main():
    try:
     result=collect(db,config,now);state['status']=result['status']
     refresh_locations(db)
+    state['article_status']=hydrate(db,config,now,request)
     state['ai_status']=enrich(db,config,now)
+    geocode_stored(db,config,now,request)
     db.execute('UPDATE runs SET message=message || ? WHERE id=(SELECT MAX(id) FROM runs)',('; AI: '+state['ai_status'],));db.commit()
     if result['status'] in ('success','partial'):state['last_success_at']=now
    except Exception as exc:

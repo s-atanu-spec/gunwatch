@@ -13,3 +13,9 @@ class Reservation(unittest.TestCase):
    state={'next_allowed_at':9999999999,'last_attempt_at':1,'last_success_at':None,'status':'error'};(Path(d)/'state.json').write_text(json.dumps(state))
    with patch.object(sys,'argv',['run.py','--state-dir',d,'--output',d+'/out']),patch.object(runner,'collect') as collect:runner.main();collect.assert_not_called()
    self.assertEqual(json.loads((Path(d)/'state.json').read_text()),state)
+ def test_enrichment_only_never_collects_or_resets_scrape_gate(self):
+  with tempfile.TemporaryDirectory() as d:
+   state={'next_allowed_at':9999999999,'last_attempt_at':1,'last_success_at':None,'status':'partial'};(Path(d)/'state.json').write_text(json.dumps(state))
+   with patch.object(sys,'argv',['run.py','--enrich-only','--state-dir',d,'--output',d+'/out']),patch.object(runner,'collect') as collect,patch.object(runner,'hydrate',return_value='1 readable article'),patch.object(runner,'enrich',return_value='1 new extraction'):
+    runner.main();collect.assert_not_called()
+   saved=json.loads((Path(d)/'state.json').read_text());self.assertEqual(saved['next_allowed_at'],9999999999);self.assertEqual(saved['ai_status'],'1 new extraction')

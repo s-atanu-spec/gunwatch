@@ -7,6 +7,7 @@ STATES=json.loads((ROOT/'reference/states.json').read_text())
 PLACES=json.loads(gzip.decompress((ROOT/'reference/places.json.gz').read_bytes()))
 COUNTIES=json.loads((ROOT/'reference/counties.json').read_text())
 CENTERS={p['state']:p for p in json.loads((ROOT/'reference/state.json').read_text())}
+MAP_REFERENCES=json.loads((ROOT/'reference/map-reference-points.json').read_text())
 INDEX=defaultdict(list)
 for state,items in PLACES.items():
  for p in items:INDEX[p['name'].casefold()].append({**p,'state':state,'level':'city'})
@@ -78,7 +79,10 @@ def locate(text):
  if len(unique)==1:
   p=next(iter(unique.values()));loc.update(state=p['state'],lat=p['lat'],lon=p['lon'],precision=p['level'],pin_color='yellow',basis=f"Census {p['level']} center; approximate location")
   loc[p['level']]=p['name']
-  if p['level']=='city':loc['area']=p['name']
+  if p['level']=='city':
+   loc['area']=p['name']
+   override=MAP_REFERENCES.get(p['state']+'|'+p['name'])
+   if override:loc.update(lat=override['lat'],lon=override['lon'],basis=override['basis'],coordinate_source=override['source'])
  if loc['state']:
   matches=list(ADDRESS_RE.finditer(text))
   streets=[]

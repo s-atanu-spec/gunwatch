@@ -31,6 +31,7 @@
     "enabled": true,
     "provider": "groq",
     "model": "openai/gpt-oss-20b",
-    "max_reports_per_run": 8
+    "max_reports_per_run": 4,
+    "daily_request_limit": 40
   }
 }

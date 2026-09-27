@@ -1,0 +1,8 @@
+{
+  "CA|San Francisco": {
+    "lat": 37.779255,
+    "lon": -122.419182,
+    "basis": "City-level map reference at San Francisco City Hall (Library of Congress); not the incident scene",
+    "source": "https://www.loc.gov/pictures/item/ca0633/"
+  }
+}

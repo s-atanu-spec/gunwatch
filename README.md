@@ -35,7 +35,7 @@ The default news map shows report locations using the selected publication windo
 
 The default sources are Google News US search, CBS News US and NPR National RSS. Source coverage and availability vary; a US feed edition does not guarantee that every returned report is domestic. Cases require a matched US location.
 
-RSS descriptions supply short, extractive summaries. For supported publisher URLs, the collector can read structured article text when robots.txt permits it. This is bounded to five new or changed articles per run, with no redirects, retries, login or paywall bypass. Only short excerpts and extraction evidence are retained; bounded source excerpts of up to 3,000 characters are retained for extraction; full article bodies are not published. Aggregator link lists are not presented as summaries. When no usable text is available, the card clearly says **headline only**.
+RSS descriptions supply short, extractive summaries. For supported publisher URLs, the collector can read structured article text when robots.txt permits it. This is bounded to five new or changed articles per run, with no redirects, retries, login or paywall bypass. Only short excerpts and extraction evidence are retained; bounded source excerpts of up to 10,000 characters are retained for extraction; full article bodies are not published. Aggregator link lists are not presented as summaries. When no usable text is available, the card clearly says **headline only**.
 
 Optional AI extraction uses Groq-hosted `openai/gpt-oss-20b`. Source quotes and Census names must pass validation before use. Missing state evidence, ambiguous places and unsupported summaries are rejected.
 
@@ -133,8 +133,20 @@ Redirect errors report only the destination host and a recognized route (such as
 
 Optional provider: Groq, model: `openai/gpt-oss-20b` (Apache 2.0 model license). The provider has separate account terms and quotas. Create an account at https://console.groq.com and store the key only in the repository Actions secret `GROQ_API_KEY`. Never put it in config.json, Pages, logs or the state branch. Missing credentials are logged as `waiting for GROQ_API_KEY`; RSS and offline location matching continue.
 
-At most eight uncached records are processed per eligible collection; identical inputs are cached across sources. Any provider or validation failure stops AI for the run with a one-hour backoff and no automatic retries. Only the public headline and available bounded source excerpt are sent. Summary sentences must occur verbatim in the excerpt. Place evidence must occur in the source; ambiguous place names need explicit source state evidence. Coordinates come from Census, never the model. This reduces invented facts but does not independently verify the incident.
+At most four uncached records are processed per eligible collection; identical inputs are cached across sources. Any provider or validation failure stops AI for the run with a one-hour backoff and no automatic retries. Only the public headline and available bounded source excerpt are sent. Summary sentences must occur verbatim in the excerpt. Place evidence must occur in the source; ambiguous place names need explicit source state evidence. Coordinates come from Census, never the model. This reduces invented facts but does not independently verify the incident.
 
 AI cannot fetch inaccessible articles or invent missing details. Headline-only records remain labelled. A city can be mapped approximately even when event time or casualties are unknown. Existing records are reprocessed without new publisher requests.
 
 Documentation: https://console.groq.com/docs/model/openai/gpt-oss-20b and https://console.groq.com/docs/structured-outputs . Model license: https://github.com/openai/gpt-oss/blob/main/LICENSE .
+
+
+## Interactive coverage release
+The default analytics now count distinct news stories by publication date, with day/state/publisher filtering. They do not claim to count all incidents or victims. The Leaflet street map uses real geographic coordinates and zooms to level 19; zoom never upgrades the precision of an approximate city/county/state point. Click pins for source links. The sidebar contains location counts above publisher counts. The CDC 2014–2024 panel provides separately labelled annual mortality context.
+
+Publisher reads: up to five public HTTPS links per eligible run, robots-aware, at most two validated redirects, no challenge/paywall bypass, and no video transcription. JSON-LD articleBody or main/article paragraphs provide text. Private IPs, credentials in URLs, non-HTTPS links, videos and Google aggregator links are rejected. Source availability is recorded per report. Only bounded text is retained; not every news link provides a readable article.
+
+Briefs follow casualty → source event time → street/area/city/county/state, followed by a source-quoted public-safety update where available. With no incident time reference, they begin with the source publication date/time explicitly labelled as publication. Missing quantities and details remain unknown. AI evidence must occur in the input; formatted briefs are assembled from extracted facts, not free-form invented descriptions.
+
+AI: at most four new requests per run, forty per UTC day, forty-second pacing, cached by input and model version. These caps are not a billing-plan detector. Free accounts remain subject to provider quotas; paid accounts may incur usage fees. This project does not upgrade plans or supply payment information.
+
+Run workflow with `enrich_only` checked to process stored reports and rebuild Pages without querying news feeds or Google. It has a separate 30-minute durable reservation and honors AI backoff. Push events build from saved data only. Scheduled collection preserves its existing cooldown.

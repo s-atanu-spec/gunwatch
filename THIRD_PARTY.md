@@ -86,3 +86,12 @@ FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.  IN NO EVENT SHALL THE AUTHORS OR
 COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
 IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+
+## Leaflet and live street map
+Leaflet 1.9.4 is distributed under its BSD-2-Clause license, copied at reference/leaflet-LICENSE.txt. https://leafletjs.com . OpenStreetMap tiles load only in the user's visible map viewport with standard browser caching and visible attribution. No background tile scraping or offline downloads. https://www.openstreetmap.org/copyright and https://operations.osmfoundation.org/policies/tiles/ . Map tiles are a best-effort external service.
+
+## Historical mortality snapshot
+CDC/NCHS National Vital Statistics System firearm mortality by state, retrieved 2026-09-27 from https://www.cdc.gov/nchs/pressroom/sosmap/firearm_mortality/firearm_mortality_dfe.json . Public U.S. government data. Dashboard displays 2014–2024; all intents, state of residence, annual deaths and age-adjusted rates per 100,000. Source and limitations: https://www.cdc.gov/nchs/state-stats/deaths/firearms.html . Never blended with live news-derived incident counts.
+
+San Francisco city-level map reference: City Hall coordinates from the Library of Congress HABS record https://www.loc.gov/pictures/item/ca0633/ . Used as an approximate urban reference instead of the offshore Census geographic centroid; never labelled an incident address.

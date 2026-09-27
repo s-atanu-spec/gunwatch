@@ -22,7 +22,7 @@ class GeographyUpgrade(unittest.TestCase):
    row=json.loads(db.execute('select payload from reports').fetchone()[0]);self.assertEqual(row['facts']['location']['state'],'CA')
 class AIValidation(unittest.TestCase):
  def result(self,**kwargs):
-  r={'place':'Austin','state':'TX','evidence':'Shooting in Austin, TX.','state_evidence':'Austin, TX','summary_quotes':[],'ambiguous':False};r.update(kwargs);return r
+  r={'place':'Austin','state':'TX','evidence':'Shooting in Austin, TX.','state_evidence':'Austin, TX','summary_quotes':[],'ambiguous':False,'time_reference':None,'street':None,'area':None,'updates':[]};r.update(kwargs);return r
  def test_validated_location(self):self.assertEqual(validate(self.result(),{'headline':'Shooting in Austin, TX.','excerpt':''})['location']['state'],'TX')
  def test_no_hallucinated_state(self):self.assertNotIn('location',validate(self.result(evidence='Shooting in Austin.',state_evidence=None),{'headline':'Shooting in Austin.','excerpt':''}))
  def test_wrong_evidence(self):self.assertNotIn('location',validate(self.result(),{'headline':'Shooting in Boston, MA.','excerpt':''}))

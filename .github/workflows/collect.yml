@@ -1,0 +1,68 @@
+name: Collect and publish
+on:
+  schedule:
+    - cron: '17,47 * * * *'
+  workflow_dispatch:
+  push:
+    branches: [main]
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+concurrency:
+  group: gunwatch-collector-and-publisher
+  cancel-in-progress: false
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Initialize uploaded source
+        run: |
+          if [ -f gunwatch-source.zip ]; then
+            python - <<'PY'
+          from pathlib import Path
+          from zipfile import ZipFile
+          with ZipFile('gunwatch-source.zip') as archive:
+              for item in archive.infolist():
+                  path = Path(item.filename)
+                  if path.is_absolute() or '..' in path.parts or '.github' in path.parts:
+                      raise RuntimeError('Unexpected archive path')
+              archive.extractall('.')
+          PY
+            git rm gunwatch-source.zip
+            git add config.json README.md VALIDATION.md THIRD_PARTY.md package.json package-lock.json .gitignore src tests scripts site reference
+            git -c user.name='github-actions[bot]' -c user.email='41898282+github-actions[bot]@users.noreply.github.com' commit -m 'Initialize GunWatch source tree'
+            git push origin HEAD:main
+          fi
+      - name: Test extraction and matching
+        run: python -m unittest discover -s tests -v
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+      - name: Test dashboard behavior
+        run: npm ci && npm run test:ui
+      - name: Collect, persist and build
+        run: python scripts/run.py --github --state-dir .state
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: output
+  deploy:
+    needs: collect
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy dashboard
+        id: deployment
+        uses: actions/deploy-pages@v4

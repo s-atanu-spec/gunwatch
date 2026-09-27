@@ -80,9 +80,16 @@ def retrieve(url,config,db,now,fetch,check=public_url):
 
 def hydrate(db,config,now,fetch):
  remaining=min(5,config.get('article_limit_per_run',5));read=0;available=0
+ apply_supplements(db)
  rows=[json.loads(x[0]) for x in db.execute('SELECT payload FROM reports ORDER BY first_seen_at DESC')]
+ rows.sort(key=lambda r:r.get('published_at') or 0,reverse=True)
  for row in rows:
-  if row['facts']['relevance']=='excluded' or row.get('article_checked_at',0)>now-86400:continue
+  if row['facts']['relevance']=='excluded' or row.get('source_supplement') or (row.get('article_version')==3 and row.get('article_checked_at',0)>now-86400):continue
+  if 'news.google.com/' in row['url'] and remaining>0:
+   remaining-=1;read+=1
+   try:direct=discover_publisher(row,config,db,now,fetch)
+   except Exception:direct=None
+   if direct:row['aggregator_url']=row['url'];row['url']=direct
   host=urllib.parse.urlsplit(row['url']).hostname or ''
   if any(host==h or host.endswith('.'+h) for h in BLOCKED_HOSTS):
    row['article_status']='Aggregator or video link; direct publisher text unavailable';row['article_checked_at']=now
@@ -96,6 +103,7 @@ def hydrate(db,config,now,fetch):
     row['source_text']=result['text'];row['text_kind']='publisher article text';available+=1
     from incidents import extract
     row['facts']=extract({**row,'text':row['source_text']});row['location_version']=3
+  row['article_version']=3
   db.execute('UPDATE reports SET payload=? WHERE id=?',(json.dumps(row),row['id']));db.commit()
  return f'{read} publisher links checked; {available} readable articles'
 
@@ -120,3 +128,61 @@ def geocode_stored(db,config,now,fetch):
   if resolved and resolved.get('precision')=='address':row['facts']['location']=resolved;db.execute('UPDATE reports SET payload=? WHERE id=?',(json.dumps(row),stored['id']))
  db.commit()
  return used
+
+
+def apply_supplements(db):
+ from pathlib import Path
+ from incidents import extract
+ from locations import locate
+ entries=json.loads((Path(__file__).resolve().parents[1]/'reference/source-supplements.json').read_text())
+ bytitle={x['title']:x for x in entries}
+ for stored in db.execute('SELECT id,payload FROM reports').fetchall():
+  row=json.loads(stored['payload']);entry=bytitle.get(row['title'])
+  if not entry or row.get('source_supplement'):continue
+  row.update(source_text=entry['text'],source_supplement=entry['provenance'],article_status=entry['provenance'],url=entry['url'])
+  row['facts']=extract({**row,'text':entry['text']})
+  loc=locate('Shooting in '+entry['city']+', '+entry['state'])
+  loc.update(street=entry['street'],basis='City center; street intersection is stated in the supplied publisher text. Exact intersection not geocoded.',match_key=None)
+  row['facts']['location']=loc;row['location_version']=4
+  row['ai_details']={'time_reference':entry['time_reference'],'updates':entry['updates']}
+  db.execute('UPDATE reports SET payload=? WHERE id=?',(json.dumps(row),stored['id']))
+ db.commit()
+
+def discover_publisher(row,config,db,now,fetch):
+ """Find matching article on the publisher's own homepage/RSS. No Google decoding service."""
+ homes={'wkyc':'https://www.wkyc.com','fox4kc.com':'https://fox4kc.com','fox4':'https://fox4kc.com'}
+ home=row.get('source_home') or homes.get(row.get('source','').casefold())
+ if not home:return None
+ key='publisher-discovery:'+home
+ cached=db.execute('SELECT payload FROM cache WHERE key=? AND expires>?',(key,now)).fetchone()
+ if cached:links=json.loads(cached[0])
+ else:
+  links=[]
+  # Reuse all URL and robots checks; no challenges or paywalls are bypassed.
+  pages=[]
+  def capture(url,ua,limit=2000000):
+   code,headers,raw=fetch(url,ua,limit)
+   if code==200 and not url.endswith('/robots.txt'):pages.append((url,raw))
+   return code,headers,raw
+  retrieve(home,config,db,now,capture)
+  for url,raw in pages[:1]:
+   tree=Tree();tree.feed(raw.decode('utf-8','replace'))
+   for n in tree.root.nodes():
+    if n.tag=='a' and n.attrs.get('href'):links.append([n.text(),urllib.parse.urljoin(url,n.attrs['href'])])
+   feeds=[urllib.parse.urljoin(url,n.attrs['href']) for n in tree.root.nodes() if n.tag=='link' and n.attrs.get('type') in ('application/rss+xml','application/atom+xml') and n.attrs.get('href')]
+   for feed in feeds[:1]:
+    feedpages=[]
+    def readfeed(u,ua,limit=2000000):
+     code,headers,raw=fetch(u,ua,limit)
+     if code==200 and u==feed:feedpages.append(raw)
+     return code,headers,raw
+    retrieve(feed,config,db,now,readfeed)
+    for body in feedpages:
+     try:
+      from collector import parse_feed
+      links.extend([r['title'],r['url']] for r in parse_feed(body,row['source'],now))
+     except Exception:pass
+  db.execute('INSERT OR REPLACE INTO cache VALUES(?,?,?)',(key,json.dumps(links),now+1800));db.commit()
+ def norm(s):return re.sub(r'[^a-z0-9]+',' ',s.casefold()).strip()
+ matches={url for title,url in links if norm(title)==norm(row['title']) and public_url(url) and urllib.parse.urlsplit(url).hostname==urllib.parse.urlsplit(home).hostname}
+ return next(iter(matches)) if len(matches)==1 else None

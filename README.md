@@ -150,3 +150,13 @@ Briefs follow casualty → source event time → street/area/city/county/state, 
 AI: at most four new requests per run, forty per UTC day, forty-second pacing, cached by input and model version. These caps are not a billing-plan detector. Free accounts remain subject to provider quotas; paid accounts may incur usage fees. This project does not upgrade plans or supply payment information.
 
 Run workflow with `enrich_only` checked to process stored reports and rebuild Pages without querying news feeds or Google. It has a separate 30-minute durable reservation and honors AI backoff. Push events build from saved data only. Scheduled collection preserves its existing cooldown.
+
+
+### September 27 follow-up
+Groq now uses the official OpenAI Python client with Groq's Responses API, no automatic retries, at most four article extractions/run and 40/day. Install `pip install -r scripts/requirements.txt`. Headline-only entries do not spend model calls. A single SDK compatibility check is allowed on migration from the original failed client; subsequent errors retain the one-hour backoff. API status and extraction diagnostics are excluded from the published dashboard JSON.
+
+Publisher articles: direct links are read subject to robots and access restrictions. For aggregator links, publisher homepage/RSS discovery uses an exact headline match and cached results; newly collected RSS records preserve publisher home URLs. This cannot resolve every opaque aggregator link. User-provided article excerpts may be recorded with explicit provenance in `reference/source-supplements.json`; these are never represented as automated fetches. Cleveland + WKYC uses a labelled publisher-context inference for the approximate Ohio city center; generic ambiguous city names remain unpinned.
+
+The incident watchlist shows located news stories with source-supported incident dates/casualties and map navigation. It does not equate story counts with verified incidents. Identical-headline grouping chooses the newest publication timestamp. The browser refreshes saved news each minute; Actions collection is scheduled twice hourly, subject to GitHub scheduling delays and source backoff.
+
+CDC data is checked once daily during collection/enrichment, validated for all 50 states plus DC, cached persistently and published automatically. Later complete annual releases appear without code edits. Missing/partial years are not invented; retrieval errors retain the previous valid snapshot.

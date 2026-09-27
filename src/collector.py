@@ -4,7 +4,7 @@ import datetime as dt,email.utils,hashlib,html,json,re,sqlite3,time,urllib.reque
 from html.parser import HTMLParser
 from incidents import extract,group_reports
 from google_search import parse_search
-from locations import census_match,STATES,locate
+from locations import locate_report,census_match,STATES,locate
 
 class PlainText(HTMLParser):
  def __init__(self):super().__init__();self.parts=[];self.hidden=0
@@ -42,7 +42,7 @@ def parse_feed(raw,source,now):
   rawdesc=node.findtext('{http://purl.org/rss/1.0/modules/content/}encoded') or node.findtext('description','')
   body=clean(rawdesc)[:6000]
   if re.search(r'<(?:ol|ul)\b',rawdesc,re.I) or len(body.replace(title,'').replace(publisher,''))<65:body=''
-  rows.append({'id':hashlib.sha256(url.encode()).hexdigest(),'url':url,'title':title[:1000],'source':publisher,'published_at':published,'text':body,'first_seen_at':now})
+  rows.append({'id':hashlib.sha256(url.encode()).hexdigest(),'url':url,'title':title[:1000],'source':publisher,'source_home':(node.find('source').get('url','') if node.find('source') is not None else ''),'published_at':published,'text':body,'first_seen_at':now})
  if root.findall('./channel/item') and not rows:raise ValueError('No valid RSS items')
  return rows
 
@@ -198,14 +198,16 @@ def refresh_locations(db):
  """Reprocess old records after matcher upgrades without fetching publishers again."""
  for stored in db.execute('SELECT id,payload FROM reports').fetchall():
   row=json.loads(stored['payload'])
-  if row.get('location_version')==3:continue
-  old=row['facts']['location'];fresh=locate(row['title']+'. '+row.get('source_text',row.get('text','')))
+  if row.get('location_version')==4:continue
+  old=row['facts']['location'];fresh=locate_report(row)
   if old.get('precision')=='address' and old.get('address')==fresh.get('address') and old.get('state')==fresh.get('state'):fresh=old
-  row['facts']['location']=fresh;row['location_version']=3
+  row['facts']['location']=fresh;row['location_version']=4
   db.execute('UPDATE reports SET payload=? WHERE id=?',(json.dumps(row),stored['id']))
  db.commit()
 
 def export(db,config,state,now):
+ from articles import apply_supplements
+ apply_supplements(db)
  refresh_locations(db)
  reports=[json.loads(r[0]) for r in db.execute('SELECT payload FROM reports')]
  review_path=Path(__file__).resolve().parents[1]/'NEWS_REVIEW.json'
@@ -228,5 +230,5 @@ def export(db,config,state,now):
   db.executemany('INSERT INTO case_reports VALUES(?,?)',[(c['id'],r['id']) for r in c['reports']])
  db.commit()
  # Full source bodies stay in the database; the public feed contains bounded excerpts and evidence.
- public=[{k:v for k,v in r.items() if k not in ('text','source_text')} for r in pending if r['facts']['relevance']!='excluded']
- return {'version':3,'generated_at':now,'state':state,'states':STATES,'cases':cases,'review':public,'report_count':len(reports),'runs':[dict(r) for r in db.execute('SELECT * FROM runs ORDER BY id DESC LIMIT 20')],'sources':[dict(r) for r in db.execute('SELECT * FROM source_state')],'calendar':'America/New_York','excluded_count':excluded,'audit':{'date':audit.get('review_date'),'reviewed':len(audit['items'])}}
+ public=[{k:v for k,v in r.items() if k not in ('text','source_text','ai','ai_details')} for r in pending if r['facts']['relevance']!='excluded']
+ return {'version':3,'generated_at':now,'state':{k:v for k,v in state.items() if k in ('status','last_success_at','last_attempt_at','next_allowed_at')},'states':STATES,'cases':cases,'review':public,'report_count':len(reports),'runs':[{**dict(r),'message':r['message'].split('; AI:')[0]} for r in db.execute("SELECT * FROM runs WHERE status != 'enrichment' ORDER BY id DESC LIMIT 20")],'sources':[dict(r) for r in db.execute('SELECT * FROM source_state')],'calendar':'America/New_York','excluded_count':excluded,'audit':{'date':audit.get('review_date'),'reviewed':len(audit['items'])}}

@@ -2,7 +2,7 @@
 import hashlib,json,os,re,time,urllib.request,urllib.error
 from locations import INDEX,STATES,locate
 MODEL='openai/gpt-oss-20b'
-VERSION=2
+VERSION=3
 FIELDS={'place':{'type':['string','null']},'state':{'type':['string','null']},'evidence':{'type':['string','null']},'state_evidence':{'type':['string','null']},'summary_quotes':{'type':'array','items':{'type':'string'}},'ambiguous':{'type':'boolean'}}
 FIELDS.update({'time_reference':{'type':['string','null']},'street':{'type':['string','null']},'area':{'type':['string','null']},'updates':{'type':'array','items':{'type':'string'}}})
 SCHEMA={'type':'object','properties':FIELDS,'required':list(FIELDS),'additionalProperties':False}
@@ -11,15 +11,22 @@ class NoRedirect(urllib.request.HTTPRedirectHandler):
  def redirect_request(self,*args,**kwargs):return None
 
 def infer(record,key,model=MODEL):
- payload={'model':model,'messages':[{'role':'system','content':PROMPT},{'role':'user','content':json.dumps(record,ensure_ascii=False)}],'temperature':0,'reasoning_effort':'low','max_completion_tokens':1800,'response_format':{'type':'json_schema','json_schema':{'name':'news_extraction','strict':True,'schema':SCHEMA}}}
- request=urllib.request.Request('https://api.groq.com/openai/v1/chat/completions',data=json.dumps(payload).encode(),headers={'Authorization':'Bearer '+key,'Content-Type':'application/json'},method='POST')
+ # Official OpenAI-compatible SDK, pointed only at Groq. No automatic retries.
+ from openai import OpenAI,APIStatusError
  try:
-  with urllib.request.build_opener(NoRedirect).open(request,timeout=30) as response:raw=response.read(100001)
- except urllib.error.HTTPError as exc:raise RuntimeError('AI provider HTTP '+str(exc.code)) from None
- except Exception:raise RuntimeError('AI provider connection failed') from None
+  with OpenAI(api_key=key,base_url='https://api.groq.com/openai/v1',max_retries=0,timeout=30) as client:
+   response=client.responses.create(model=model,instructions=PROMPT,input=json.dumps(record,ensure_ascii=False),max_output_tokens=1800,reasoning={'effort':'low'},text={'format':{'type':'json_schema','name':'news_extraction','strict':True,'schema':SCHEMA}},store=False)
+   raw=response.output_text
+ except APIStatusError as exc:
+  # Only a bounded provider error code is retained, never headers, keys or request bodies.
+  body=exc.body if isinstance(exc.body,dict) else {}
+  err=body.get('error',body);code=err.get('code') or err.get('type') if isinstance(err,dict) else None
+  safe=re.sub(r'[^a-zA-Z0-9_.-]','',str(code or 'no_error_code'))[:70]
+  raise RuntimeError('AI provider HTTP '+str(exc.status_code)+' ('+safe+')') from None
+ except Exception:raise RuntimeError('AI provider connection or SDK failure') from None
  if len(raw)>100000:raise ValueError('AI response too large')
- try:return json.loads(json.loads(raw)['choices'][0]['message']['content'])
- except (KeyError,IndexError,TypeError,ValueError):raise ValueError('AI response invalid') from None
+ try:return json.loads(raw)
+ except (TypeError,ValueError):raise ValueError('AI response invalid') from None
 
 def source_record(row):
  return {'headline':row['title'][:1000],'excerpt':row.get('source_text',row.get('text',''))[:7000]}
@@ -75,10 +82,15 @@ def enrich(db,config,now,call=infer):
  model=cfg.get('model',MODEL);limit=min(10,max(0,cfg.get('max_reports_per_run',8)));count=0;cached_count=0
  db.execute('CREATE TABLE IF NOT EXISTS ai_cache (key TEXT PRIMARY KEY,payload TEXT NOT NULL)');db.commit()
  block=db.execute("SELECT expires FROM cache WHERE key='ai:backoff'").fetchone()
- if block and block[0]>now:return 'provider cooldown'
+ # One compatibility check when migrating from the failed urllib client to the documented SDK.
+ migrated=db.execute("SELECT 1 FROM cache WHERE key='ai:responses-sdk-checked'").fetchone()
+ if block and block[0]>now and migrated:return 'provider cooldown'
+ if block and block[0]>now:limit=min(limit,1)
+ db.execute("INSERT OR REPLACE INTO cache VALUES('ai:responses-sdk-checked','true',?)",(now+315360000,));db.commit()
  rows=[json.loads(x[0]) for x in db.execute('SELECT payload FROM reports ORDER BY first_seen_at DESC')]
+ rows.sort(key=lambda r:(bool(r.get('source_text')),r.get('published_at') or 0),reverse=True)
  for row in rows:
-  if row['facts']['relevance']=='excluded':continue
+  if row['facts']['relevance']=='excluded' or not source_record(row)['excerpt']:continue
   record=source_record(row);fingerprint=hashlib.sha256(json.dumps([VERSION,model,record],sort_keys=True).encode()).hexdigest()
   hit=db.execute('SELECT payload FROM ai_cache WHERE key=?',(fingerprint,)).fetchone()
   if hit:validated=json.loads(hit[0]);cached_count+=1

@@ -40,7 +40,7 @@ def locate(text):
  for start,end,name,hits in candidates:
   for p in hits:
    state=p['state'];pattern=r'^\s*,\s*(?:'+re.escape(STATES[state])+'|'+state+r')\b'
-   if re.search(pattern,text[end:]):explicit.append((name,p))
+   if re.search(pattern,text[end:],re.I):explicit.append((name,p))
  chosen=[]
  if explicit:
   chosen=[p for name,p in explicit]
@@ -117,3 +117,15 @@ def census_match(loc,fetch):
  lon,lat=coords.get('x'),coords.get('y')
  if not isinstance(lat,(int,float)) or not isinstance(lon,(int,float)) or not(-180<=lon<=180 and -90<=lat<=90):return loc
  return {**loc,'lat':lat,'lon':lon,'precision':'address','pin_color':'red','basis':'US Census address match, interpolated along address range; not an independently verified incident coordinate','geocoded_address':m.get('matchedAddress')}
+
+
+def locate_report(row):
+ text=row['title']+'. '+row.get('source_text',row.get('text',''))
+ loc=locate(text)
+ if not loc.get('state'):
+  names={c['name'] for c in loc.get('candidates',[])}
+  if len(names)==1:loc['named_place']=next(iter(names))
+  if row.get('source','').casefold() in ('wkyc','wkyc.com') and loc.get('named_place')=='Cleveland':
+   loc=locate('Shooting in Cleveland, OH')
+   loc.update(method='publisher_context',basis='Approximate Cleveland, Ohio city center: Cleveland is named in the headline; Ohio is inferred from WKYC local publisher context. Incident street unconfirmed.',evidence=row['title'],match_key=None)
+ return loc

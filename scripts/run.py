@@ -7,6 +7,7 @@ from collector import database,collect,export,refresh_locations
 from enrichment import enrich
 from articles import hydrate,geocode_stored
 from collector import request
+from history import refresh_history,published_history
 
 def git(*args,cwd=ROOT):
  return subprocess.run(['git',*args],cwd=cwd,text=True,capture_output=True,check=True).stdout.strip()
@@ -28,6 +29,7 @@ def write_json(path,data):
  temp=path.with_suffix('.tmp');temp.write_text(json.dumps(data,ensure_ascii=False,separators=(',',':')));temp.replace(path)
 def build(db,config,state,now,out):
  shutil.copytree(ROOT/'site',out,dirs_exist_ok=True);(out/'data').mkdir(exist_ok=True)
+ write_json(out/'assets/history.json',published_history(db,ROOT/'site/assets/history.json'))
  write_json(out/'data/latest.json',export(db,config,state,now));(out/'.nojekyll').touch()
 def main():
  p=argparse.ArgumentParser();p.add_argument('--github',action='store_true');mode=p.add_mutually_exclusive_group();mode.add_argument('--build-only',action='store_true');mode.add_argument('--enrich-only',action='store_true');p.add_argument('--state-dir',type=Path,default=ROOT/'work');p.add_argument('--output',type=Path,default=ROOT/'output');args=p.parse_args()
@@ -44,6 +46,7 @@ def main():
   if args.enrich_only and now>=state.get('next_enrichment_at',0):
    state['next_enrichment_at']=now+1800;write_json(statefile,state)
    if args.github:persist(folder,'Reserve stored-report enrichment')
+   refresh_history(db,now,request,config)
    refresh_locations(db);state['article_status']=hydrate(db,config,now,request);state['ai_status']=enrich(db,config,now)
    geocode_stored(db,config,now,request)
    db.execute('INSERT INTO runs(started_at,status,message,added) VALUES(?,?,?,?)',(now,'enrichment',state['article_status']+'; AI: '+state['ai_status'],0));db.commit()
@@ -53,6 +56,7 @@ def main():
    if args.github:persist(folder,'Reserve collection cooldown')
    # No network access is possible before the durable claim above succeeds.
    try:
+    refresh_history(db,now,request,config)
     result=collect(db,config,now);state['status']=result['status']
     refresh_locations(db)
     state['article_status']=hydrate(db,config,now,request)

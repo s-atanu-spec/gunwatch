@@ -35,7 +35,7 @@ class AIValidation(unittest.TestCase):
   with tempfile.TemporaryDirectory() as tmp,patch.dict('os.environ',{'GROQ_API_KEY':'fake-test-key'}),patch('enrichment.time.sleep'):
    db=database(Path(tmp)/'db');calls=[]
    for i in range(2):
-    r={'id':str(i),'title':'Shooting in Austin, TX.','text':'','summary':'Existing','summary_kind':'headline only'};r['facts']=extract(r)
+    r={'id':str(i),'title':'Shooting in Austin, TX.','text':'Police reported one person injured.','summary':'Existing','summary_kind':'headline only'};r['facts']=extract(r)
     db.execute('insert into reports values(?,?,?,?,?)',(str(i),'https://x.com/'+str(i),i,i,json.dumps(r)))
    db.commit();cfg={'ai':{'enabled':True,'max_reports_per_run':8}}
    def call(*args):calls.append(args);return self.result()

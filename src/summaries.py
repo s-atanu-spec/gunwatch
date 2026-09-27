@@ -13,10 +13,10 @@ def format_summary(row):
   if n is not None:fragments.append(('No people were' if n==0 else 'One person was' if n==1 else f'{n} people were')+' '+verb)
  if not fragments and counts.get('shot') is not None:
   n=counts['shot'];fragments=[('One person was' if n==1 else f'{n} people were')+' shot']
- statement=' and '.join(fragments)+' in a gun violence incident' if fragments else 'A gun violence incident was reported'
+ statement=' and '.join([fragments[0]]+[v[0].lower()+v[1:] for v in fragments[1:]])+' in a gun violence incident' if fragments else 'A gun violence incident was reported'
  if when:statement+=' ('+when+'; as stated by the source)'
  parts=[]
- for value in [l.get('address') or l.get('street'),l.get('area'),l.get('city'),l.get('county')]:
+ for value in [l.get('address') or l.get('street'),l.get('area'),l.get('city') or l.get('named_place'),l.get('county')]:
   if value and value.casefold() not in [p.casefold() for p in parts]:parts.append(value)
  if parts:statement+=' in '+', '.join(parts)
  if l.get('state'):statement+=' in '+STATES.get(l['state'],l['state'])

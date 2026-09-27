@@ -1,7 +1,7 @@
 """Conservative source-supported incident extraction and non-transitive deduplication."""
 import datetime as dt,hashlib,re
 from zoneinfo import ZoneInfo
-from locations import locate
+from locations import locate,locate_report
 NUMBERS={x:i for i,x in enumerate(['zero','one','two','three','four','five','six','seven','eight','nine','ten','eleven','twelve'])};NUMBERS.update({'a':1,'an':1,'no':0})
 N=r'(?:\d{1,3}|zero|one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve|a|an|no)'
 NEGATIVE=re.compile(r'\b(movie shoot|film shoot|photo shoot|shooting star|shooting guard|shooting range|shooter game|active shooter drill|vaccine shot)\b',re.I)
@@ -25,6 +25,10 @@ def casualties(text):
   for m in re.finditer(r'\b('+N+r')\s+(?:(?:people|persons?|men|women|children|teens?|officers?|victims?|man|woman|child)\s+)?(?:(?:were|was|are|is|reported)\s+)?(?:'+words+r')\b',text,re.I):found.append(number(m.group(1)));evidence.append(m.group(0))
   for m in re.finditer(r'\b(?:'+words+r')\s+('+N+r')\s+(?:people|persons?|men|women|children|teens?|victims?)\b',text,re.I):found.append(number(m.group(1)));evidence.append(m.group(0))
   if field=='injured' and re.search(r'\bno (?:one was injured|injuries(?: were reported)?)\b',text,re.I):found.append(0);evidence.append('No injuries reported')
+  
+  if not found:
+   singular=re.search(r'\b(?:woman|man|teen|child|person|officer)\s+(?:was\s+)?(?:'+words+r')\b',text,re.I)
+   if singular:found.append(1);evidence.append(singular.group(0))
   result[field]=found[0] if found and len(set(found))==1 else None
   if len(set(found))>1:evidence.append(field+': conflicting numbers in source; not resolved automatically')
  return result,evidence
@@ -63,7 +67,7 @@ def event_time(text,published):
 
 def extract(report):
  text=report['title']+'. '+report.get('text','')[:3000]
- counts,evidence=casualties(text);when=event_time(text,report.get('published_at'));loc=locate(text)
+ counts,evidence=casualties(text);when=event_time(text,report.get('published_at'));loc=locate_report(report)
  return {'relevance':classify(report['title'],text),'casualties':counts,'when':when,'location':loc,'evidence':evidence+when['evidence']}
 
 def eligible(f):

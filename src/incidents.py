@@ -10,11 +10,13 @@ FOLLOW=re.compile(r'\b(sentenced|sentencing|trial|convicted|conviction|anniversa
 OUTCOME=re.compile(r'\b(killed|dead|injured|wounded|hospitalized|shots fired|gunfire|gunshots?|fatal)\b',re.I)
 
 def number(s):return int(s) if s.isdigit() else NUMBERS[s.lower()]
+FOREIGN=re.compile(r'\b(South Africa(?:n)?|Saint Vincent|Caribbean|Johannesburg|Cape Town|Capetown)\b',re.I)
 def classify(title,text):
- if NEGATIVE.search(title):return 'excluded'
- if FOLLOW.search(title):return 'follow_up'
- if GUN.search(title) and (OUTCOME.search(text) or re.search(r'\bpolice\b',title,re.I)):return 'likely'
- return 'review'
+ if NEGATIVE.search(title) or FOREIGN.search(title):return 'excluded'
+ if not GUN.search(title):return 'excluded'
+ if title.strip().lower() in ('mass shooting','mass shootings','shooting','shootings'):return 'excluded'
+ if FOLLOW.search(title) or re.search(r"\b(vigil|memorial|testifies|guilty|charged|allegations|speaks out|new details|one last cruise)\b",title,re.I):return 'follow_up'
+ return 'likely'
 
 def casualties(text):
  result={};evidence=[]

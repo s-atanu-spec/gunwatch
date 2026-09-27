@@ -1,13 +1,25 @@
 {
   "sources": [
-    {"name": "Google News US", "url": "https://news.google.com/rss/search?q=%28shooting+OR+%22shots+fired%22+OR+gunfire%29+when%3A1d&hl=en-US&gl=US&ceid=US%3Aen"},
-    {"name": "CBS News US", "url": "https://www.cbsnews.com/latest/rss/us"},
-    {"name": "NPR National", "url": "https://feeds.npr.org/1003/rss.xml"}
+    {
+      "name": "Google News US",
+      "url": "https://news.google.com/rss/search?q=%28shooting+OR+%22shots+fired%22+OR+gunfire+OR+%22person+shot%22+OR+%22man+shot%22+OR+%22woman+shot%22+OR+%22officer-involved+shooting%22%29+when%3A1d+-%22South+Africa%22+-%22South+African%22+-%22Saint+Vincent%22+-%22Caribbean%22+-%22shooting+stars%22+-%22shooting+guard%22+-%22photo+shoot%22+-%22film+shoot%22+-%22video+game%22&hl=en-US&gl=US&ceid=US%3Aen"
+    },
+    {
+      "name": "CBS News US",
+      "url": "https://www.cbsnews.com/latest/rss/us"
+    },
+    {
+      "name": "NPR National",
+      "url": "https://feeds.npr.org/1003/rss.xml"
+    }
   ],
   "interval_seconds": 1800,
   "geocode_limit_per_run": 5,
   "article_limit_per_run": 5,
-  "article_hosts": ["www.cbsnews.com", "www.npr.org"],
+  "article_hosts": [
+    "www.cbsnews.com",
+    "www.npr.org"
+  ],
   "user_agent": "GunWatch/3.0 (+https://github.com/s-atanu-spec/gunwatch)",
   "overrides": []
 }

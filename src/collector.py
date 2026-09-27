@@ -1,4 +1,5 @@
 """Bounded RSS ingestion, durable SQLite storage and source-level backoff."""
+from pathlib import Path
 import datetime as dt,email.utils,hashlib,html,json,re,sqlite3,time,urllib.request,urllib.error,urllib.parse,urllib.robotparser,xml.etree.ElementTree as ET
 from html.parser import HTMLParser
 from incidents import extract,group_reports
@@ -146,7 +147,7 @@ def collect(db,config,now,fetch=request):
       db.execute('UPDATE reports SET last_seen_at=? WHERE id=?',(now,row['id']));saved+=1;continue
     row['facts']=extract(row)
     # Retain only gun-related leads, not every national news story.
-    if row['facts']['relevance'] in ('review','excluded') and not re.search(r'\b(shooting|shots? fired|gunfire|gunman|shot)\b',row['title'],re.I):continue
+    if row['facts']['relevance']=='excluded':continue
     if articles<config['article_limit_per_run'] and urllib.parse.urlsplit(row['url']).hostname in config['article_hosts']:
      articles+=1
      try:
@@ -181,6 +182,17 @@ def collect(db,config,now,fetch=request):
 
 def export(db,config,state,now):
  reports=[json.loads(r[0]) for r in db.execute('SELECT payload FROM reports')]
+ review_path=Path(__file__).resolve().parents[1]/'NEWS_REVIEW.json'
+ audit=json.loads(review_path.read_text()) if review_path.exists() else {'items':[]}
+ decisions={item['id']:item for item in audit['items']}
+ from incidents import classify
+ for r in reports:
+  r['facts']['relevance']=classify(r['title'],r.get('text',''))
+  decision=decisions.get(r['id'])
+  if decision and decision['title']==r['title']:
+   r['facts']['relevance']=decision['classification'];r['review_reason']=decision['reason'];r['relevance_reviewed']=True
+ excluded=sum(r['facts']['relevance']=='excluded' for r in reports)
+ reports=[r for r in reports if r['facts']['relevance']!='excluded']
  cases,pending=group_reports(reports,config.get('overrides'))
  db.execute('DELETE FROM cases');db.execute('DELETE FROM case_reports')
  for c in cases:
@@ -189,4 +201,4 @@ def export(db,config,state,now):
  db.commit()
  # Full source bodies stay in the database; the public feed contains bounded excerpts and evidence.
  public=[{k:v for k,v in r.items() if k!='text'} for r in pending if r['facts']['relevance']!='excluded']
- return {'version':3,'generated_at':now,'state':state,'states':STATES,'cases':cases,'review':public,'report_count':len(reports),'runs':[dict(r) for r in db.execute('SELECT * FROM runs ORDER BY id DESC LIMIT 20')],'sources':[dict(r) for r in db.execute('SELECT * FROM source_state')],'calendar':'America/New_York'}
+ return {'version':3,'generated_at':now,'state':state,'states':STATES,'cases':cases,'review':public,'report_count':len(reports),'runs':[dict(r) for r in db.execute('SELECT * FROM runs ORDER BY id DESC LIMIT 20')],'sources':[dict(r) for r in db.execute('SELECT * FROM source_state')],'calendar':'America/New_York','excluded_count':excluded,'audit':{'date':audit.get('review_date'),'reviewed':len(audit['items'])}}

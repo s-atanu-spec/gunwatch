@@ -1,4 +1,4 @@
-# GunWatch
+# GunWatch — open-source news monitor
 
 A lightweight US gun-violence news tracker with source-linked summaries, incident grouping, location confidence and case-based analytics. Built with Python, SQLite and plain JavaScript, with Codex assistance.
 
@@ -113,4 +113,10 @@ Put entries in `overrides`. Each listed report is assigned once to that reviewed
 - `reference/`: Census geographic reference data
 - `.github/workflows/`: scheduled collection, publishing and tests
 
-News belongs to its publishers. Geographic and library notices are in THIRD_PARTY.md. No general software reuse license has been selected for this project yet.
+News belongs to its publishers. Geographic and library notices are in THIRD_PARTY.md. Original project code is available under the MIT license (LICENSE). Third-party assets retain their notices and terms; news articles are not relicensed.
+
+## News desk and relevance review
+
+The default feed is a bounded, scrollable news desk with headline, source excerpt (or explicitly labelled headline-only brief), and source links. Identical headlines on the same publication day are grouped for reading only; incident matching remains separate. The map sidebar summarizes report coverage, publishers and location confidence without turning publication dates into incident dates.
+
+See [REVIEW.md](REVIEW.md) and [NEWS_REVIEW.json](NEWS_REVIEW.json) for the initial 99-record relevance review. The Google News query now uses explicit gun-event phrases and exclusions. US edition settings alone do not prove US incident geography; unknown locations stay unresolved. Filters cannot guarantee exhaustive or error-free coverage.

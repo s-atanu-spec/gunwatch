@@ -48,6 +48,8 @@ jobs:
       - name: Test dashboard behavior
         run: npm ci && npm run test:ui
       - name: Collect, persist and build
+        env:
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
         run: python scripts/run.py --github --state-dir .state
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
@@ -66,3 +68,4 @@ jobs:
       - name: Deploy dashboard
         id: deployment
         uses: actions/deploy-pages@v4
+

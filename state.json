@@ -1,1 +1,1 @@
-{"next_allowed_at":1790666549,"last_attempt_at":1790664749,"last_success_at":1790662054,"status":"running","ai_status":"provider cooldown","next_enrichment_at":1790523611,"article_status":"5 publisher links checked; 0 readable articles"}
+{"next_allowed_at":1790666549,"last_attempt_at":1790664749,"last_success_at":1790664749,"status":"partial","ai_status":"1 attempted; AI detail lacks source evidence; one-hour backoff","next_enrichment_at":1790523611,"article_status":"5 publisher links checked; 0 readable articles"}
